@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Working with Selections
+    </title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    // Getters & Setters
+    // The .html() method sets all the h1 elements' html to be "hello world":
+    $(document).ready(function() {
+        $("h1").html("hello world");
+    })
+    // The .html() method returns the html of the first h1 element:
+
+    $(function() {
+        $("h2").html($("h1").html());
+    });
+    // > "hello world"
+    <!-- Chaining -->
+
+    $(function() {
+        $("#content").find("h3").eq(2).html("new text for the third h3!").end() // Restores the selection to all h3s in #content
+            .eq(0)
+            .html("new text for the first h3!");;
+    });
+    </script>
+</head>
+
+<body>
+    <h1><span>45</span>asd</h1>
+    <h2></h2>
+    <div id="content">
+        <h3>aaa</h3>
+        <h3>bbb</h3>
+        <h3>ccc</h3>
+    </div>
+</body>
+
+</html>

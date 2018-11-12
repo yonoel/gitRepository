@@ -1,0 +1,11 @@
+package com.igeek.config.mvc;
+
+/**  
+* @ClassName: MyConfig  
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @date 2018年8月2日 下午7:01:15    
+*    
+*/
+public class MyConfig {
+
+}

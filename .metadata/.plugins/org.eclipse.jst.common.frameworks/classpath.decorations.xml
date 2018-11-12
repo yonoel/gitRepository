@@ -1,0 +1,10 @@
+<classpath>
+  <container id="LessonAfter27Base8.5!org.eclipse.jst.j2ee.internal.web.container">
+    <entry id="D:/qianyizhen/webWorkSpace/LessonAfter27Base8.5/WebContent/WEB-INF/lib/jedis-2.9.0.jar">
+      <source-attachment-path>D:/qianyizhen/webWorkSpace/LessonAfter27Base8.5/WebContent/WEB-INF/lib/jedis-2.9.0-sources.jar</source-attachment-path>
+    </entry>
+    <entry id="D:/qianyizhen/webWorkSpace/LessonAfter27Base8.5/WebContent/WEB-INF/lib/fastjson-1.1.41.jar">
+      <source-attachment-path>D:/maven/localRepository/com/alibaba/fastjson/1.1.41/fastjson-1.1.41-sources.jar</source-attachment-path>
+    </entry>
+  </container>
+</classpath>

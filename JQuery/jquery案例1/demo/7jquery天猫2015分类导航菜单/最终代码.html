@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery天猫2015分类导航菜单_源码之家</title>
+<link rel="stylesheet" type="text/css" href="css/index1.css">
+<script type="text/javascript" src="../4.轮播/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.yMenuListConin').hide();
+	$(".pullDown ul li").hover(function(){
+		$(this).addClass("menulihover").siblings().removeClass("menulihover");
+		//获取li的下标
+		var index = $(".pullDown ul li").index(this);
+		//查找div
+		$(".yMenuListCon>div.yMenuListConin").eq(index).show().siblings().hide();
+	});
+	
+})
+</script>
+</head>
+<body>
+<!-- 代码 开始 -->
+
+<!--  顶部    start-->
+<div class="pullDown">
+    <h2 class="pullDownTitle">
+        所有商品分类
+    </h2>
+    <ul class="pullDownList">
+        <li>
+            <a href="" target="_blank">手机</a>
+            /<a href="" target="_blank">数码</a>
+            /<a href="" target="_blank">电脑办公</a>
+        </li>
+        <li>
+            <a href="" target="_blank">女装</a>
+            /<a href="" target="_blank">内衣</a>
+        </li>
+        <li>
+            <a href="" target="_blank">男装</a>
+            /<a href="" target="_blank">运动户外</a>
+        </li>
+        
+    </ul>
+    
+	<!-- 下拉详细列表具体分类 -->
+    <div class="yMenuListCon">
+        <div class="yMenuListConin">
+            <div class="yMenuLCinList">
+                <h3><a href="" class="yListName">精品男装</a><a href="" class="yListMore">更多 ></a></h3>
+                <p>
+                    <a href="" class="ecolor610">大牌上新</a>
+                    <a href="">商场同款</a>
+                     
+                </p>
+            </div>
+            
+            <div class="yMenuLCinList">
+                <h3><a href="" class="yListName">精品男装</a><a href="" class="yListMore">更多 ></a></h3>
+                <p>
+                    <a href="" class="ecolor610">大牌上新</a>
+                    <a href="">商场同款</a>
+                    <a href="">男装集结</a> 
+                    <a href="">羽绒服</a>
+                    <a href="">加厚羽绒 </a>
+                    <a href="">高帮鞋</a>
+                    <a href="">商场同款</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="yMenuListConin">
+            <div class="yMenuLCinList">
+                <h3><a href="" class="yListName">精品男装</a><a href="" class="yListMore">更多 ></a></h3>
+                <p>
+                    <a href="" class="ecolor610">大牌上新</a>
+                    <a href="">商场同款</a>
+                    <a href="">男装集结</a> 
+                    <a href="">羽绒服</a>
+                    <a href="">衬衫</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="yMenuListConin">
+            <div class="yMenuLCinList">
+                <h3><a href="" class="yListName">精品男装</a><a href="" class="yListMore">更多 ></a></h3>
+                <p>
+                    <a href="" class="ecolor610">大牌上新</a>
+                    <a href="">商场同12232款</a>
+                    <a href="">男装集3434324结</a> 
+                    <a href="">羽绒453452服</a>
+                    <a href="">羽绒453452服</a>
+                    <a href="">羽绒453452服</a>
+                </p>
+            </div>
+        </div>
+             
+	</div>
+</div>
+
+</body>
+</html>

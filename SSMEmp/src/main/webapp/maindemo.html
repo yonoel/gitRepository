@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>main</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,init-scale=1">
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css
+" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="jquery-easyui-1.4.2/themes/default/easyui.css" />
+    <link type="text/css" rel="stylesheet" href="jquery-easyui-1.4.2/themes/icon.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js
+"></script>
+    <script type="text/javascript">
+   
+        // 所有查询事件都是提交查询，只是参数不同，回调函数基本相同
+    //注册事件
+    $(function() {
+    	
+            // 第一次页面触发
+          
+            // 其他按钮触发导致参数不同，回调函数不同，我觉得不如写个全局函数判断
+            $('#firstbtn').click(function() {
+                $('#footcurrent').html(1);
+                query();
+               
+            });
+            // 前一页按钮
+            $('#prebtn').click(function() {
+               var value = $('#footcurrent').html();
+               var val = parseInt(value)-1;
+               $('#footcurrent').html('val');
+               query();
+            });
+            // 后一页按钮
+            $('#nextbtn').click(function(event) {
+               var value = $('#footcurrent').html();
+               var val = parseInt(value)+1;
+               $('#footcurrent').html('val');
+               query();
+            });
+            // 尾页
+            $('#nextbtn').click(function(event) {
+               $('#footcurrent').html($('#foottotal').html());
+               query();
+            });
+
+            // 1.取参数的方法
+            function getArguments () {
+                // body... 
+                var formParams = $('#queryform').serialize();
+                var currentPage = "pageNum:"+$('#footcurrent').html();
+                var arr =[formParams,currentPage];
+                console.log(arr);
+                return arr;
+            }
+
+            $('#footcurrent').change(function(event) {
+                console.log('footcurrent'改变)；
+            
+                $('#footcurrent').html();
+            });
+
+            // 2.查询方法 如果需要在出错时执行函数，请使用 $.ajax。
+
+            function query () {
+                $.ajax({
+                    url: '${path}/main/query',
+                    type: 'get',
+                    dataType: 'json',
+                    data: {getArguments},
+                })
+                .done(function() {
+                    if(data.flag ){
+
+                    }
+                  
+                })
+                .fail(function() {
+                    console.log("error");
+                })
+                .always(function() {
+                    console.log("complete");
+                });
+                
+                $.get('${path}/main/query',getArguments, function(data) {
+                    /*optional stuff to do after success */
+                    iterator（data）;
+
+                },'json');
+            }
+
+        function disableIndex() {
+            if($('#footcurrent').html().indexOf('1')){
+                 $('#firstbtn').prop('disabled', true);
+                 $('#prebtn').prop('disabled', true);
+            } else{
+                 $('#firstbtn').prop('disabled', false);
+                 $('#prebtn').prop('disabled', false);
+            }
+        }
+
+        function disableLast () {
+           if($('#footcurrent').html().indexOf($('#foottotal').html())){
+                $('#nextbtn').prop('disabled', true);
+                $('#lastbtn').prop('disabled', true);
+           }else {
+               $('#nextbtn').prop('disabled', false);
+                $('#lastbtn').prop('disabled', false);
+           }
+        }
+
+
+        function doTrueResult(data) {
+            // 修改总页数
+            $('#foottotal').html(data.pages);
+            // 生成列表
+            var objs = data.success;
+            //console.log(objs.length)
+            for (var i = 0; i < objs.length; i++) {
+               var obj =  objs[i];
+               console.log(obj);
+                var thing = "<tr><td>"+obj."</td></tr>";
+                $('#listable').append()
+            }
+            // 处理按钮disable的函数
+            disableIndex();
+            disableLast();
+        }
+    })
+    </script>
+</head>
+
+<body>
+    <nav class="nav navbar-default text-center">
+        <h1>欢迎来到职员管理界面</h1>
+    </nav>
+    <div class="container">
+        <form id="queryform">
+            <div class="form-group form-inline">
+                姓名:
+                <input type="text" name="empName" value="" placeholder="" class="form-control"> 入职日期:
+                <input type="text" name="empName" value="" placeholder="" class="form-control">~
+            </div>
+            <input type="hidden" name="pageNum" value="1" id="formpage" />
+        </form>
+        <table class="table" id="listable">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>兴趣爱好</th>
+                    <th>职业</th>
+                    <th>入职日期</th>
+                    <th>工资</th>
+                    <th>奖金</th>
+                    <th>部门</th>
+                    <th>上司姓名</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <h5>每页十条数据,当前
+                        <span id="footcurrent">1</span>页,共<span id="foottotal">x</span>页</h5></td>
+                    <td colspan="7" class="text-right">
+                        <button class="btn btn-warning" id="firstbtn">首页</button>
+                        <button class="btn btn-warning" id="prebtn">上一页</button>
+                        <button class="btn btn-warning" id="nextbtn">下一页</button>
+                        <button class="btn btn-warning" id="lastbtn">尾页</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+
+</html>

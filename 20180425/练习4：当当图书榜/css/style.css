@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+body,ul,dl,dt,dd,p{ margin:0;
+	padding:0;
+	list-style:none;
+	font-size:12px;}
+#head{ width:960px;
+	   margin:0 auto;	   
+	   }
+.head_top{ overflow:hidden;}
+.head_top ul{ float:right;
+			  background-color:#EAFFFA;
+			  height:30px;
+			  border:1px solid #CCEAE0;
+			  margin-top:20px;
+			   position:relative;}
+.head_top ul li{ float:left;
+		         line-height:30px;
+				 padding:0 10px;}
+.head_top ul li.discount{ position:absolute;
+		  top:-20px;
+		  left:5px;
+		 }
+a{ text-decoration:none;
+   color:#6C7B78;}
+a:hover{ text-decoration:underline;
+		 color:#F90;}
+.head_bottom ul{ background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/menuBg.jpg) repeat-x;
+				 height:36px;
+				 overflow:hidden;}
+.head_bottom ul li{ float:left;
+			        line-height:36px;
+					padding:0 16px;}
+.head_bottom ul li a{ color:#FFF;}
+.clear{ clear:both;}
+.img{ margin-top:10px;}
+#content{ width:956px;
+		  margin:0 auto;
+		  border:2px solid #D3E8A5;
+		  margin-top:10px;
+		  padding-top:100px;
+		  position:relative;}
+#content .book{ position:absolute;
+				top:10px;
+				left:-12px;}
+
+.content_left{ float:left;}
+.content_left dt{ float:left;
+				  width:260px;
+				  position:relative;}
+.content_left dt .first{ position:absolute;
+						 top:-10px;
+						 left:18px;}
+.content_left dd{ float:left;
+				  width:280px;}
+.content_left dd p{ line-height:28px;}
+#content a{ color:#3063BC;}
+.content_right{ float:left;}
+.content_right dl .book2{ position:relative;}
+.content_right dl .book2 .second{ position:absolute;
+								  top:-10px;
+								  left:0;}
+.content_right dl dt,dd{ float:left;}
+.content_right dl dt{ width:100px;}
+.content_right dl .book3{ position:relative;}
+.content_right dl dt .third{ position:absolute;
+						     top:-10px;
+							 left:0;}
+.content_right dl dd{ width:260px;}
+.content_right dd p{ line-height:30px;}
+p strong{ color:#DB0754;}
+p span{ color:#71B294;}
+#foot{ width:960px;
+	   margin:0 auto;
+	   text-align:center;}
+#foot img{ vertical-align:middle;}

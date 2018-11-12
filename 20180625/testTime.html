@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript">
+    function getTimes() {
+        var x = document.getElementById('times').value;
+        var xarr = x.split(":");
+        var hour = parseInt(xarr[0]);
+        var minute = parseInt(xarr[1]);
+        var second = parseInt(xarr[2]);
+        var time = second+minute*60+hour*3600;
+        return time;
+    }
+
+    function getStr() {
+        var time = getTimes();
+        if (time == 0) {
+            return;
+        }
+        time =time-1;
+        var str;
+        var hour = Math.floor(time/3600);
+        
+        var min = Math.floor(time / 60) % 60;
+        var sec = time % 60;
+        if (hour < 10) {
+            str = '0' + hour + ":";
+        } else {
+            str = hour + ":";
+        }
+        if (min < 10) { str += "0"; }
+        str += min + ":";
+        if (sec < 10) { str += "0"; }
+        str += sec.toFixed(2);
+        return str;
+    }
+
+    function setStr() {
+        // 每次取值 如何把一个秒级别的整数转换成hh:mm:ss
+        document.getElementById('times').value = getStr();
+        // document.setInterval(test(), 1000);
+    }
+    function start(argument) {
+    	mytime = setInterval(setStr, 1000);
+    }
+   
+    	// var mytime = self.setInterval(function(){setStr()}, 1000);
+    
+		var mytime;
+    </script>
+</head>
+
+<body>
+    <input type="button" value="starton" onclick="start()">
+    <input type="button" value="setS" onclick="setStr()">
+    <input type="button" value="pauseup" onclick="window.clearInterval(mytime)">
+    <input type="text" id="times" value="01:00:00">
+   
+</body>
+
+</html>

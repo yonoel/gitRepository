@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+dl,dt,dd,p{ margin:0;
+			 padding:0;
+			 overflow:hidden;
+			 }
+			 
+#book{ width:600px;
+	   border:1px solid #666;
+	   overflow:hidden;
+	   font-size:14px;}
+
+#book dl{ float:left;
+		  width:298px;
+		  margin-top:10px;
+		  border:1px dashed #f30;}
+		  
+		  
+#book dl dt{ float:left;
+			 width:87px;
+			 border:1px double #000;}
+			 
+#book dl dd{ float:left;
+			 width:207px;}
+			 
+a{ text-decoration:none;
+	color:#315086;}
+	
+a:hover{ text-decoration:underline;
+		 color:#F93;}
+#book dl dd p{ line-height:20px;}
+#book dl dd p span{ color:#F00;}

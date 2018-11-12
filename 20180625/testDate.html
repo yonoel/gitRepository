@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>testDate</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript">
+    function init() {
+        alert("请输入一个日期，符合以下格式（2016/08/09）,不足十位以0补足")
+    }
+
+    function judge() {
+        var str = document.getElementById('inDate').value;
+        alert(str);
+        strArr = str.split('/');
+        // 只有一种情况会合法，不合法的情况太多了，所以只写合法的，其他的通通不合法
+        // 首先切分后的长度为3 ，且每个字段必定有值
+        alert(strArr.length);
+        if (strArr.length == 3) {
+            var year = strArr[0];
+            var month = strArr[1];
+            var day = strArr[2];
+            if (testYear(year) && testMonth(month)) {
+                // 只有当年月正确了再去测试day，这时的month其实是下一个月的月份
+                var newDateObj = new Date(year, month, 0);
+                alert(newDateObj.getDate());
+                var day2 = parseInt(day);
+                if (0< day2 && day2 < newDateObj.getDate()) {
+                    alert(true);
+                    return;
+                }
+            }
+        }
+        alert(false);
+        return false;
+    }
+
+    function testYear(str) {
+        // 只有一种情况会合法，不合法的情况太多了，所以只写合法的，其他的通通不合法
+        if (str.length == 4) {
+            var year = parseInt(str);
+            if (1899 < year && year < 2100) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function testMonth(str) {
+        var month = parseInt(str);
+        if (0 < month && month < 13) {
+            return true;
+        }
+        return false;
+    }
+    </script>
+</head>
+
+<body onload="init()">
+    请输入：
+    <input type="text" id="inDate">
+    <br>
+    <input type="button" value="判断合法性" onclick="judge()" />
+  
+</body>
+
+</html>

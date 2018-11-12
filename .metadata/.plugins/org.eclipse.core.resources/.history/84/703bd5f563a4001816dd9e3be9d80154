@@ -1,0 +1,11 @@
+package com.example.SpringBootStudy.controller;
+
+/**  
+* @ClassName: VueController  
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @date 2018年8月20日 下午6:29:35    
+*    
+*/
+public class VueController {
+
+}

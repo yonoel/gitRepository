@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>changeCssStyle</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
+" type="text/javascript" charset="utf-8" async defer>
+    </script>
+    <script type="text/javascript">
+    	function fn1 (argument,color) {
+    		$(argument).css('borderColor', color);
+    	}
+    	function fn2 (argument) {
+    		argument.className = 'amouseover';
+    	}
+    	// 这样子修改css样式太累，不如全写在css里，直接改变classname
+    	function fn3 (argument) {
+    		argument.className = 'amouseout';
+    	}
+    </script>
+    <style type="text/css" media="screen">
+    #user,
+    #psd {
+        border: 1px black solid;
+    }
+    /* .是class的选择器不是class的名字*/
+    .amouseover{
+    	font-size: 30px;
+    	color: red
+    }
+	.amouseout{
+		font-size: 14px;
+		color: blue;
+	}
+    body {
+        text-align: center;
+    }
+    </style>
+    <!-- this =document.getelementbyid('user') -->
+</head>
+
+<body>
+    用户名:					
+    <input type="text" id="user" value="admin" onmouseover="fn1(this,'red')" onmouseout="fn1(this,'black')" />
+    <br> 密码：
+    <input type="text" id="psd" value="psd" onmouseover="fn1(this,'red')" onmouseout="fn1(this,'black')"/>
+    <br>
+    <a href="#" title="" onmouseover="fn2(this)" onmouseout="fn3(this)" class="mouseout">免费注册</a>
+</body>
+
+</html>

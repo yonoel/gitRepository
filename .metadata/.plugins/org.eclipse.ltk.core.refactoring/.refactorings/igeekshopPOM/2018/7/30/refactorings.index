@@ -1,0 +1,28 @@
+1532440292029	Delete element
+1532474643583	Delete element
+1532474646456	Copy elements
+1532474653781	Delete element
+1532481603362	Delete element
+1532481610660	Rename package 'com.igeek.daoimpl'
+1532481616252	Rename package 'com.igeek.serviceimpl'
+1532496673119	Delete element
+1532502761363	Delete element
+1532512072008	Delete element
+1532512977832	Rename type 'RegisterServlet'
+1532513045899	Extract method 'registerHandler'
+1532515911663	Move compilation unit
+1532561044064	Delete elements
+1532561102359	Delete element
+1532582987908	Rename type 'CategoryServices'
+1532604679762	Delete element
+1532612674294	Copy compilation unit
+1532612687984	Copy compilation unit
+1532612730668	Copy compilation unit
+1532612740954	Rename type 'ICategoryServices'
+1532612771120	Rename type 'CategoryServices'
+1532612786883	Copy compilation unit
+1532672599303	Move file
+1532759038169	Delete element
+1532760036230	Rename type 'ordersServices'
+1532760103481	Rename compilation unit 'OrdersServices.java'
+1532761659813	Extract method 'getSubtotal'

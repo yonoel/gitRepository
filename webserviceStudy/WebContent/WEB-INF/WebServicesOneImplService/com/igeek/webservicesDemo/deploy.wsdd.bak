@@ -1,0 +1,33 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from WebServicesOneImplService WSDL service -->
+
+  <service name="WebServicesOneImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webservicesDemo.igeek.com"/>
+      <parameter name="wsdlServiceElement" value="WebServicesOneImplService"/>
+      <parameter name="schemaQualified" value="http://webservicesDemo.igeek.com"/>
+      <parameter name="wsdlServicePort" value="WebServicesOneImpl"/>
+      <parameter name="className" value="com.igeek.webservicesDemo.WebServicesOneImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="WebServicesOneImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="save" qname="operNS:save" xmlns:operNS="http://webservicesDemo.igeek.com" returnQName="retNS:saveReturn" xmlns:retNS="http://webservicesDemo.igeek.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://webservicesDemo.igeek.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:password" xmlns:pns="http://webservicesDemo.igeek.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="sayHello" qname="operNS:sayHello" xmlns:operNS="http://webservicesDemo.igeek.com" returnQName="retNS:sayHelloReturn" xmlns:retNS="http://webservicesDemo.igeek.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://webservicesDemo.igeek.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="sayHello save"/>
+
+  </service>
+</deployment>

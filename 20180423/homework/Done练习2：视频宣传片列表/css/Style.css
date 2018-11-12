@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+
+#nav { width:300px;}
+#nav .body .head{background:#2B507C;
+			font-size:16px;
+			font-weight:bold;
+			color:#FFF;
+			padding:8px;
+			text-indent:10px;
+			margin:0}
+			
+#nav .body .main{background:#CDD4DC;
+			}
+			
+#nav .body table{cellspacing:10px;border:2px #000000;}
+			
+#nav .body .imgs{border:#FFF 2px solid;}
+			
+#nav .body td{ padding:0px;}
+			
+#nav .body .name{font-size:9px; font-weight:bold;margin:0; text-indent:8px; }
+#nav .body .intr{font-size:9px; margin:0; text-indent:20px; background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-01.jpg) no-repeat;}
+			
+#nav .body .intr2{font-size:9px; margin:0; text-indent:20px; background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-01.jpg)  no-repeat; }
+#nav .body .imgs2{padding-left:8px;}

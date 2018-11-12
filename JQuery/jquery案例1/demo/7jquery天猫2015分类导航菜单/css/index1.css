@@ -1,0 +1,127 @@
+/* 代码整理：源码之家 www.mycodes.net */
+/*comm*/
+*{padding:0;
+  margin:0;
+  border:0;
+  list-style-type:none;
+ }
+a{text-decoration:none;}
+
+body{background:#f5f5f5;}
+
+/*下拉*/
+.pullDown{
+	position: absolute;
+}
+.pullDownTitle{
+	height: 35px;
+	width: 190px;
+	background-color: #a90000;
+	color: #ffffff;
+	font-size: 16px;
+	text-align: center;
+	line-height: 35px;
+}
+.pullDownList{
+	width: 190px;
+	height: 480px;
+	background: url(../images/pullbj.jpg);
+	position: relative;
+}
+.pullDownList li{
+	height: 32px;
+	color: #fefcfc;
+	font-size: 13px;
+	padding-left: 11px;
+	position: relative;
+}
+
+.pullDownList li a{
+	color: #fefcfc;
+	font-size: 13px;
+}
+.pullDownList li.menuliselected{
+	background-color: #4a4a4a;
+}
+.pullDownList li.menuliselected span{
+	top: 14px;
+	right: 7px;
+	border-left: 4px solid transparent;
+	border-top: 4px solid #fff;
+	border-right:4px solid transparent;
+	border-bottom: 0;
+}
+.pullDownList li.menulihover{
+	background-color: #a90000;
+}
+
+/*下拉详细列表具体分类*/
+.yMenuListCon{
+	width: 400px;
+	height:480px;
+	position: absolute;
+	z-index:2;
+	top: 35px;
+	left: 190px;
+	overflow: hidden;
+}
+.yMenuListCon p{
+	color: #7f7e7e;
+	font-size: 12px;
+	margin: 10px 0 0 -1px;
+	overflow: hidden;
+}
+.yMenuListCon p a{
+	color: #7f7e7e;
+	font-size: 12px;
+	padding: 0 8px;
+	float: left;
+}
+.yMenuListCon p a.ecolor610{
+	color: #a90000;
+}
+.yMenuListCon p a:hover{
+	color: #a90000;
+	text-decoration: underline;
+}
+.yMenuListConin{
+	
+	background-color: #fff;
+	opacity: 0.9;
+	padding:0 20px;
+	width: 360px;
+	height:480px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.yMenuLCinList{
+	overflow: hidden;
+}
+/*详细分类标题*/
+.yMenuLCinList h3{
+	position: relative;
+	height: 20px;
+	width: auto;
+	margin: 25px auto 0;
+	border-bottom: 1px solid #000;
+}
+.yMenuLCinList h3 a{
+	font-size: 12px;
+	color: #2d2d2d;
+	position: absolute;
+	bottom: 0px;
+	display: block;
+}
+.yListMore{
+	color: #666666;
+	font-weight: normal;
+	right: 0;
+	width: 40px;
+	height: 20px;
+}
+.yMenuLCinList h3 .yListName{
+	display: block;
+	width: 90px;
+	height: 20px;
+}

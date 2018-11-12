@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2018-06-20 18:11:18
+ * @version $Id$
+ */
+div {
+	margin: 0px;
+	padding: 0px;
+	border: 1px #000 solid;
+
+}
+p {
+	font-size: 12px;
+	margin: 0px;
+}
+
+input {
+	width: 130px;
+}
+.all {
+	margin: 0px auto;
+	width: 1006px;
+	position: relative;
+}
+h1 {
+	margin: 0px;
+}
+
+.foot,.title {
+	height: 120px;
+	text-align: center;
+}
+
+.main {
+	position: relative;
+	height: 350px;
+}
+.left{
+	width: 20%;	
+	float: left;
+	height: 350px;
+}
+.left p,span {
+	font-size: 15px;
+	font-weight: bold;
+	margin-top:5px;
+	text-indent: 10px;
+
+}
+
+.tleft {
+	width: 50px;
+	font-size: 10px;
+	text-indent: 10px;
+}
+.patternnumber {
+	width: 30px;
+}
+.left .tright span{
+	font-size: 5px;
+}
+.trightbutton{
+	text-align: center;
+}
+.trightbutton .buttons {
+	width: 40px;
+}
+.right {
+	width: 79.5%;
+	float: right;
+	height: 350px;
+}
+.right h1 {
+	margin: 20px ;
+	margin-left: 190px;
+}
+.right table caption {
+	text-align: center;
+}
+.right .tleft {
+	text-indent: 13em;
+	width: 20em;
+}
+.right .tright {
+	font-size: 12px;
+}
+.right .tright span {
+	color: red;
+}
+.right .tright input {
+	width: 160px;
+}
+.right .tright .boxcheck {
+	margin: 0;
+	padding: 0;
+	width: 12px;
+}

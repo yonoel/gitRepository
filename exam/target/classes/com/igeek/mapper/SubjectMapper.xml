@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.igeek.mapper.SubjectMapper">
+
+
+		<select id="selectSubnoByTypeAndDiff" resultType="int">
+				SELECT subno
+				FROM `subject` where sub_type = #{type} and difficulty =
+				#{diff}
+		</select>
+
+		<select id="selectByPrimaryKeys"
+				resultType="com.igeek.domain.Subject">
+				SELECT subno FROM `subject` where subno in
+        <foreach collection="subnos" open="(" separator="," close=")" item="no">
+            #{no}
+        </foreach>
+		</select>
+        <delete id="deleteInlist">
+            delete form `subject` where subno in
+              <foreach collection="subnos" open="(" separator="," close=")" item="no">
+             #{no}
+              </foreach>
+        </delete>
+
+</mapper>

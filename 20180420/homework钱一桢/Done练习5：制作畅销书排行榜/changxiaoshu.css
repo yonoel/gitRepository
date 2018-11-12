@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+div.title{background-color:#518700;font-size:16px;text-indent:1em;color:#FFF;}
+
+img{vertical-align:middle; padding-left:5px; padding-top:5px; padding-bottom:5px; padding-right:7px;}
+
+div.content{background-color:#f3f4df; width:300px; }
+
+
+li{list-style-type:none;}
+
+a{text-decoration:none; font-size:14px;color:#1a66ba;text-indent:50px;line-height:2em;}
+a:hover{text-decoration:underline;}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SpringException.java&apos; to &apos;SpringMVCOfficial/src/main/java/com.spring.exception&apos;&#x0D;&#x0A;- Original project: &apos;SpringMVCDemo&apos;&#x0D;&#x0A;- Destination element: &apos;SpringMVCOfficial/src/main/java/com.spring.exception&apos;&#x0D;&#x0A;- Original element: &apos;com.tutorialspoint.exception.SpringException.java&apos;" description="Copy compilation unit" destination="=SpringMVCOfficial/src\/main\/java&lt;com.spring.exception" element1="/src\/main\/java&lt;com.tutorialspoint.exception{SpringException.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1533598565899" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+p.head{text-align:center;font-size:20px; font-weight:900}
+p.date{text-align:center;color:#666;font-size:12px;}
+
+p{text-indent:2em; line-height:25px;}
+
+.title{font-weight:bold;}
+
+
+.img {text-align:center}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>timeTest</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	function start() {
+		
+
+		
+
+		// if(zero(second)){
+		// 	m = parseInt(minute);
+		// 	return m - 1;
+		// }
+		// if(zero(minute)){
+		// 	return hour - 1;
+		// }
+
+		var id = document.setInterval(clock(), 1000);
+	}
+	function colock() {
+		arr = getText();
+		hour = parseInt(arr[0]);
+		minute = parseInt(arr[1]);
+		second = parseInt(arr[2])-1;
+
+		if(zero(second)){
+			minute -= 1;
+			second = 0;
+		}
+		var time = hour*60*60+minute*60+second;
+		if(time/60%60 != 0) {
+			hour = '00';
+		}
+		minute = Math.ceil(time/60);
+		second = ((time/60-minute)*60
+		arr2 = new Array(hour,minute,second);
+		arr2 = arr2.join(":");
+		// setTimeout(clock(), 1000);
+		document.getElementById('times').value = arr2;
+		return arr2;
+	}
+	function pause() {
+		document.clearInterval();
+	}
+	function getText() {
+		var ref = document.getElementById('times').value;
+		refArr = ref.split(":");
+		return refArr;
+	}
+	function zero(str) {
+		num = parseInt(str);
+		if(num == 0){
+			return ture;
+		}
+		return false;
+	}
+</script>
+</head>
+<body>
+	<input type="button" name="" onclick="colock()">
+	<input type="button" value="开始" onclick="start()"><input type="button" value="暂停" onclick="pause()"><br>
+    <input type="text" id="times" value="01:00:00">
+</body>
+</html>

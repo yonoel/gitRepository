@@ -1,0 +1,126 @@
+package com.example.SpringBootStudy.domain;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.Table;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+
+/**
+ * @ClassName: User
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @date 2018年8月7日 上午8:23:53
+ * 
+ */
+@SpringBootConfiguration
+@ComponentScan
+@Entity
+@javax.persistence.Table
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Column(name = "u_id")
+    private String id;
+    @Column(nullable = false, unique = true, name = "u_name")
+    private String userName;
+    @Column(nullable = false, name = "u_password")
+    private Integer passWord;
+    @Column(nullable = false, unique = true, name = "u_email")
+    private String email;
+    @Column(nullable = false, unique = true, name = "u_birthday")
+    private Date birthday;
+
+    /**
+     * @Title: toString
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @return
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", userName=" + userName + ", passWord=" + passWord + ", email=" + email
+                + ", birthday=" + birthday + "]";
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id
+     *            the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the userName
+     */
+    public String getUserName() {
+        return userName;
+    }
+
+    /**
+     * @param userName
+     *            the userName to set
+     */
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    /**
+     * @return the passWord
+     */
+    public Integer getPassWord() {
+        return passWord;
+    }
+
+    /**
+     * @param passWord
+     *            the passWord to set
+     */
+    public void setPassWord(Integer passWord) {
+        this.passWord = passWord;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email
+     *            the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the birthday
+     */
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    /**
+     * @param birthday
+     *            the birthday to set
+     */
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+}

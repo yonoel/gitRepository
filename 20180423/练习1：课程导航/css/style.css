@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+#nav{ width:180px;
+	  border:1px solid #B9D4F1;
+	  background-color:#F5F9FC;}
+#nav h1{ font-size:14px;
+		 font-weight:bolder;
+		 color:#1F376D;
+		 background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/title_icon.gif) no-repeat 5px 2px;
+		 padding-left:25px;}
+ul{ list-style-type:none;
+	padding:0;
+	margin:0 5px;}
+ul li{ font-size:12px;
+		border-top:1px solid#B9D4F1;
+		line-height:28px;
+		background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/submenu.gif) no-repeat;
+		padding-left:10px; }
+a{ text-decoration:none;
+	color:#3A3B3B;}
+a:hover{ text-decoration:underline;
+	     color:#F93;}

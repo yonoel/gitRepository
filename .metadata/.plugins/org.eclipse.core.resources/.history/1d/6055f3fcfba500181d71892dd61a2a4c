@@ -1,0 +1,19 @@
+package java8package;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @ClassName: ListDist
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @date 2018年8月22日 下午7:09:14
+ * 
+ */
+public class ListDist {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i = 1; i <= 100; i++) {
+            
+        }
+    }
+}

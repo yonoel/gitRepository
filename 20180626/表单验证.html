@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			在提交之前需要做前端表单验证
+			需要....
+			验证失败停留在本画面
+			验证成功完提交表单，提交到action对应的资源上
+			
+			
+			表单提交两种方式：
+			1、提交按钮为<input type="submit" value="提交" /> 自动提交
+			      前端表单验证
+			     在form标签中加上onsubmit事件  该事件不要要有一个返回值，根据方法的返回值来判断到底是验证成功还是验证失败
+			      验证成功  返回true 后提交
+			      验证失败   返回false  不提交，停留本画面显示错误
+			      什么触发？  当提交表单之前触发
+			      
+		    2、提交按钮为<input type="button" value="提交" /> 手动提交
+		                  需要给按钮加点击事件
+		                  提交方法中：验证表达和手动提交 form对象.submit();
+		-->
+		<script type="text/javascript">
+			function checkform(){
+				//取值
+				var user = document.getElementById("user").value;
+				var pwd = document.getElementById("pwd").value;
+				//用户名不能为空
+				if(user.length==0){
+					alert("用户名不能为空");
+					return false;
+				}
+				//密码不能为空
+				if(pwd.length==0){
+					alert("密码不能为空");
+					return false;
+				}
+				//只能包含 a-z、0-9 和下划线
+				for(var i=0;i<user.length;i++){
+					var c = user.charAt(i);
+					if(!((c>='a' && c<='z') || (c>='A' && c<='Z') || (c>='0' && c<='9') || c=='_')){
+						alert("用户名只能包含 a-z、0-9 和下划线");
+						return false;
+					}
+				}
+				
+				//至少包含 6 个字符
+				if(pwd.length<6){
+					alert("密码至少包含 6 个字符");
+					return false;
+				}
+				return true;
+			}
+			
+			function submitform(){
+				//表单验证
+				if(checkform()){
+					//表单验证成功提交表单 手动提交
+					//取得form对象
+					document.getElementById("form1").submit();
+				}
+				
+			}
+		</script>
+		<form action="success.html" onsubmit="return checkform()">
+			用户名：<input type="text" id="user" name="user" />(只能包含 a-z、0-9 和下划线)<br />
+			密码：<input type="text" id="pwd" name="pwd" />(至少包含 6 个字符)<br />
+			<input type="submit" value="提交" />
+		</form>
+		
+		<hr />
+	<!-- 	<form id="form1" action="success.html" onsubmit="return checkform()">
+			用户名：<input type="text" id="user" name="user" />(只能包含 a-z、0-9 和下划线)<br />
+			密码：<input type="text" id="pwd" name="pwd" />(至少包含 6 个字符)<br />
+			
+			<!-- <input type="button" value="提交" onclick="submitform()"/> -->
+			<!-- <img src="images/title_register2.gif" onclick="submitform()" style="cursor: pointer;"/> -->
+		</form> -->
+	</body>
+</html>

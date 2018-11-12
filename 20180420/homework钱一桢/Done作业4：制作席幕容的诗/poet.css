@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.head{ text-align:center;}
+.title{color:#0061EC;font-size:18px;font-weight:bold; padding-right:1em;}
+.author{color:#9F9F9F;font-size:14px}
+
+.content{weith:600px; margin:10px 380px;color:#9F9F9F;}
+pre{font-size:12px;line-height:22px}
+
+.mei{color:#FF2C66;font-size:18px;font-weight:bold;}
+.orange{color:#F9A100;font-size:18px;font-style:italic;}
+
+
+.foot{color:#0F0; text-decoration:underline; text-indent:2em;}
+
+
+
+

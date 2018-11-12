@@ -1,0 +1,29 @@
+@charset "gb2312";
+/* CSS Document */
+div {
+	margin:10px;
+	padding:5px;
+}
+#father {
+	border:1px #000 solid;
+}
+.layer01 {
+	border:1px #F00 dashed;
+	float:right;
+}
+.layer02 {
+	border:1px #00F dashed;
+	float:right;
+	
+}
+.layer03 {
+	border:1px #060 dashed;
+	float:right;
+}
+.layer04 {
+	
+	border:1px #666 dashed;
+	font-size:12px;
+	line-height:23px;
+	
+}

@@ -1,0 +1,14 @@
+package com.igeek.config;
+
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+/**  
+* @ClassName: WebMvcConfig  
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @date 2018年8月2日 下午7:40:29    
+*    
+*/
+
+public class WebMvcConfig implements WebMvcConfigurer{
+
+}

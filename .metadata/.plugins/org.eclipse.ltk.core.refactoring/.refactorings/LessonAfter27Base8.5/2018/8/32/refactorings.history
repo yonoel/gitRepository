@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 3 elements to &apos;Shop/src/main/java/com.igeek.mvc.redis&apos;&#x0D;&#x0A;- Original project: &apos;LessonAfter27Base8.5&apos;&#x0D;&#x0A;- Destination element: &apos;Shop/src/main/java/com.igeek.mvc.redis&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     redis.RedisCommand.java&#x0D;&#x0A;     redis.RedisConnection.java&#x0D;&#x0A;     redis.RedisHandle.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="=Shop/src\/main\/java&lt;com.igeek.mvc.redis" element1="/src&lt;redis{RedisCommand.java" element2="/src&lt;redis{RedisConnection.java" element3="/src&lt;redis{RedisHandle.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1533511314344" units="3" version="1.0"/>
+</session>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>form</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,init-scale=1">
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css
+" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js
+"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-header">注册</h1>
+        <form>
+            <div class="form-group">
+                <label for="inputname">name:</label>
+                <input class="form-control" type="text" name="userName" value="" placeholder="name:">
+            </div>
+            <div class="form-group">
+                <label for="inputpassword">password:</label>
+                <input type="password" class="form-control" name="userPassword" value="">
+            </div>
+            <div class="form-group">
+                <label for="inputrepassword">Repassword:</label>
+                <input type="password" class="form-control" name="userRePassword" value="">
+            </div>
+            <div class="form-group">
+                <label for="radiosex">sex:</label>
+                <label for="radiosex" class="radio-inline">
+                    <input type="radio" name="radionsex" value="男">male
+                </label>
+                <label for="radiosex" class="radio-inline">
+                    <input type="radio" name="radionsex" value="男">female
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="inputemailaddress">emailAddress:</label>
+                <textarea class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
+        </form>
+        <h1 class="page-header">注册内联</h1>
+        <form action="#" class="form-horizontal text-right">
+            <div class="form-group">
+                <label for="inputname" class="col-md-3 control-label">name:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" name="userName" value="" placeholder="mike">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputpassword" class="col-md-3 control-label">password:</label>
+                <div class="col-md-8">
+                    <input type="password" class="form-control" name="userPassword" value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputrepassword" class="col-md-3 control-label">Repassword:</label>
+                <div class="col-md-8">
+                    <input type="password" class="form-control" name="userRePassword" value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="radiosex" class="col-md-3 control-label">sex:</label>
+                <div class="col-md-8 text-left">
+                    <label for="radiosex" class="radio-inline">
+                        <input type="radio" name="radionsex" value="男">male
+                    </label>
+                    <label for="radiosex" class="radio-inline">
+                        <input type="radio" name="radionsex" value="男">female
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputemailaddress" class="col-md-3 control-label">emailAddress:</label>
+                <div class="col-md-8">
+                    <textarea class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-5 text-left">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-primary">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

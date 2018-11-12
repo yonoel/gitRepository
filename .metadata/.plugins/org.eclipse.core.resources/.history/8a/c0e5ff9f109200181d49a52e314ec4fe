@@ -1,0 +1,208 @@
+package com.igeek.web.controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.github.pagehelper.Page;
+import com.igeek.domain.Product;
+import com.igeek.service.ICategoryServices;
+import com.igeek.service.IProductServices;
+import com.igeek.service.impl.CategoryServicesImpl;
+import com.igeek.service.impl.ProductServicesImpl;
+import com.igeek.web.util.WebUtils;
+
+/**
+ * Servlet implementation class MainControllerServlet
+ */
+@WebServlet("/mainController")
+public class MainControllerServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MainControllerServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String method = request.getParameter("methodflag");
+        if (method.contains("query")) {
+            if (method.contains("Category")) {
+                if (!method.contains("Info")) {
+                    queryCategory(request, response);
+                } else if (method.contains("Info")) {
+                    queryCategoryInfo(request, response);
+                }
+
+                // if(method.contains("jedis")) {
+                // queryByJedis(request, response);
+                // }
+
+            } else if (method.contains("Product")) {
+                if (method.contains("Pages")) {
+                    queryProductsPages(request, response);
+                } else if (method.contains("Info")) {
+                    queryProductsInfo(request, response);
+                } else {
+                    queryProducts(request, response, method);
+                }
+
+            }
+        }
+
+    }
+
+    /**
+     * @Title: queryProductsInfo
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @param request
+     * @param response
+     * @throws IOException
+     * @throws ServletException
+     */
+    private void queryProductsInfo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        IProductServices productServices = new ProductServicesImpl();
+        String pid = request.getParameter("pid");
+        Map<String, Object> map = productServices.queryProductsInfo(pid);
+        if ((Boolean) map.get("flag")) {
+            request.setAttribute("object", map.get("object"));
+            Product product = (Product) map.get("object");
+            // 浏览记录
+            List<Product> products =  (List<Product>) request.getSession().getAttribute("history");
+            if (products == null) {
+                products = new ArrayList<Product>();
+            }
+            // 是否存在的问题-->不能去重除非我重写equals方法
+
+            products.add(0, product);
+            products = products.stream().distinct().collect(Collectors.toList());
+         
+            request.getSession().setAttribute("history", products);
+
+            request.getRequestDispatcher("product_info.jsp").forward(request, response);
+        } else {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+    }
+
+    /**
+     * @Title: queryProductsPages
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @param request
+     * @param response
+     */
+    private void queryProductsPages(HttpServletRequest request, HttpServletResponse response) {
+        IProductServices productServices = new ProductServicesImpl();
+        String cid = request.getParameter("cid");
+        String pageNum = request.getParameter("pagenum");
+        Page<Product> page = productServices.queryCategoryInfo(cid, Integer.parseInt(pageNum));
+        WebUtils.object2Json(page, response);
+    }
+
+    /**
+     * @Title: queryCategoryInfo
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @param request
+     * @param response
+     * @throws IOException
+     * @throws ServletException
+     */
+    private void queryCategoryInfo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String cid = request.getParameter("cid");
+        String pageNum = request.getParameter("pageNum");
+        IProductServices productServices = new ProductServicesImpl();
+        Page<Product> page = productServices.queryCategoryInfo(cid, Integer.parseInt(pageNum));
+        if (page.getTotal() == 0) {
+            // 假的话没数据
+            response.sendRedirect("index.jsp");
+        } else {
+
+            request.setAttribute("pages", page.getPages());
+            request.setAttribute("cid", cid);
+            List<Product> list = page.getResult();
+            request.setAttribute("list", list);
+
+            request.setAttribute("pageSize", page.getPageSize());
+            request.getRequestDispatcher("product_list.jsp").forward(request, response);
+        }
+    }
+
+    /**
+     * @Title: queryByJedis
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @param request
+     * @param response
+     * @throws IOException
+     */
+    private void queryByJedis(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        ICategoryServices categoryServices = new CategoryServicesImpl();
+        String category = categoryServices.queryCategoryByJedis();
+        response.getOutputStream().write(category.getBytes());
+    }
+
+    /**
+     * @Title: queryHotProducts
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @param request
+     * @param response
+     */
+    @SuppressWarnings("null")
+    private void queryProducts(HttpServletRequest request, HttpServletResponse response, String method) {
+        IProductServices productServices = new ProductServicesImpl();
+        String pageNum = request.getParameter("pageNum");
+        String pageSize = request.getParameter("pageSize");
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (pageNum == null && pageSize == null && !pageNum.matches("//d*") && !pageSize.matches("//d*")) {
+            map.put("flag", false);
+            map.put("message", "页数传递有错");
+            WebUtils.object2Json(map, response);
+        } else {
+            map = productServices.queryList(Integer.parseInt(pageNum), Integer.parseInt(pageSize), method);
+            WebUtils.object2Json(map, response);
+        }
+
+    }
+
+    /**
+     * @Title: queryCategory
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @param request
+     * @param response
+     */
+    private void queryCategory(HttpServletRequest request, HttpServletResponse response) {
+        ICategoryServices categoryServices = new CategoryServicesImpl();
+        WebUtils.object2Json(categoryServices.queryCategory(), response);
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    }
+
+}

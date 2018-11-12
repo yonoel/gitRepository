@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="imagetoolbar" content="no" />
+<title>Simple Image Viewer | Demo page</title>
+
+<link rel="stylesheet" href="css/style.css" />
+
+<style>
+*{padding: 0px}
+#gallery img {
+	border: none;
+}
+
+#gallery_nav {
+	float: left;
+	width: 112px;
+	text-align: center;
+}
+#gallery_nav a{
+	display: block;height: 92px;
+}
+#gallery_output {
+	float: left;
+	width: 600px;
+	overflow: hidden;
+}
+
+#gallery_output img {
+	display: block;
+	margin: 0px auto 0 auto;
+}
+.on{ border: 1px solid rgba(92,92,92,1.00); }
+</style>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#gallery_output img").not(":first").hide();
+
+	$("#gallery a").click(function() {
+		$("#gallery a").removeClass('on');
+		$(this).addClass("on");
+		if ( $("#" + this.rel).is(":hidden") ) {
+			$("#gallery_output img").slideUp();
+			$("#" + this.rel).slideDown();
+		}
+	});
+});
+
+</script>
+
+</head>
+<body>
+
+<div id="content">
+
+	<div id="gallery">
+		<div id="gallery_nav">
+			<a class="on" rel="img1" href="javascript:;"><img src="img/iphone_1.jpg" /></a>
+			<a rel="img2" href="javascript:;"><img src="img/iphone_2.jpg" /></a>
+			<a rel="img3" href="javascript:;"><img src="img/iphone_3.jpg" /></a>
+			<a rel="img4" href="javascript:;"><img src="img/iphone_4.jpg" /></a>
+		</div>
+		
+		<div id="gallery_output">
+			<img id="img1" src="img/iphone_1b.jpg" />
+			<img id="img2" src="img/iphone_2b.jpg" />
+			<img id="img3" src="img/iphone_3b.jpg" />
+			<img id="img4" src="img/iphone_4b.jpg" />
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+	
+</div>
+</body>
+</html>

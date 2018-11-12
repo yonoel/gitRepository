@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // $('#fn1').on('click', function() {
+        //      $(".box")
+        //          .animate({
+        //              height: 20
+        //          }, "slow",function(){
+        //          	console.log('animate is done')
+        //          });
+        //     $(".box")
+        //         .animate({
+        //             height: 20
+        //         }, "slow").queue(function() {
+        //             $("#title").text("We're in the animation, baby!");
+        //         });
+
+        // });
+        $("#show").click(function () {
+			      var n = $("div").queue("fx");
+			      $("span").text("Queue length is: " + n.length);
+			});
+			function runIt() {
+			      $("div").show("slow");
+			      $("div").animate({left:'+=200'},2000);
+			      $("div").slideToggle(1000);
+			      $("div").slideToggle("fast");
+			      $("div").animate({left:'-=200'},1500);
+			      $("div").hide("slow");
+			      $("div").show(1200);
+			      $("div").slideUp("normal", runIt);
+			}
+			runIt();
+    });
+    </script>
+    <style>
+    div {
+        margin: 3px;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 0px;
+        top: 30px;
+        background: green;
+        display: none;
+    }
+
+    div.newcolor {
+        background: blue;
+    }
+
+    span {
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+
+  <!--   <input type="button" name="" value="" id="fn1">
+    <div id="titlle"></div>
+    <div class="box" style="height:100px;width:100px;border: 1px red solid;">
+    </div> -->
+    <button id="show">Show Length of Queue</button>
+    <span></span>
+    <div></div>
+</body>
+
+</html>

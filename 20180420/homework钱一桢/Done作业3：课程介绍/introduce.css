@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+div{background-color:#eee;}
+
+
+p{line-height:25px}
+p.content1{color:#598828;}
+
+
+.one{ background-color:#055A53;color:#FFF;}
+.two{ background-color:#027138;color:#FFF;}
+.three{ background-color:#008BBE;color:#FFF;}
+.four{ background-color:#0065B3;color:#FFF;}
+.five{ background-color:#00255F;color:#FFF;}
+
+p.content2{color:#F90;}
+.six{ background-color:#F76D1D;color:#FFF;}
+.seven{ background-color:#B91413;color:#FFF;}
+.eight{ background-color:#CE3B65;color:#FFF;}
+.nine{ background-color:#B70236;color:#FFF;}
+.ten{ background-color:#522D75;color:#FFF;}
+.tenone{ background-color:#4D146D;color:#FFF;}
+
+
+
+
+

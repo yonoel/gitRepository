@@ -1,0 +1,21 @@
+1531736997956	Rename type 'MyTypeHandler'
+1531740228820	Rename resource 'MyBatisCfg.xml'
+1531741538587	Move compilation unit
+1531741556233	Move file
+1531741609172	Delete element
+1531782377435	Rename compilation unit 'WebController.java'
+1531784702131	Move compilation unit
+1531791558275	Delete elements
+1531804363689	Rename resource 'indexBooks.jsp'
+1531883067738	Copy compilation unit
+1531989221781	Delete element
+1531989549111	Rename resource 'index.jsp'
+1532133066124	Rename type 'EmpWebController'
+1532143237699	Move compilation unit
+1532143261653	Move compilation unit
+1532145854262	Delete element
+1532149405432	Rename type 'Emp'
+1532149418424	Move compilation unit
+1532153891579	Delete element
+1532153895877	Delete element
+1532153945272	Rename type 'EmpServices'

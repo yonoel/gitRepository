@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- xmlns:p="http://www.springframework.org/schema/p" p命名空间，简写了property -->
+
+
+	<!-- <bean id="myDataSource" class="org.springframework.samples.PnameTest" 
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost:3306/mydb" 
+		p:username="root" p:password="masterkaoli" p:num="2" /> -->
+	<bean id="myDataSource"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="properties">
+			<value >
+				className=com.mysql.jdbc.Driver
+				url=jdbc:mysql://localhost:3306/mydb
+
+			</value>
+		</property>
+    </bean>
+
+
+
+
+	<!-- more bean definitions for data access objects go here -->
+
+</beans>

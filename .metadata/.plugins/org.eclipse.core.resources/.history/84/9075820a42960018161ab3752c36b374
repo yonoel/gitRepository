@@ -1,0 +1,12 @@
+package com.igeek.IGeekShop;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class IGeekShopApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(IGeekShopApplication.class, args);
+	}
+}

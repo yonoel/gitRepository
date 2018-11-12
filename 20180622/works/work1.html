@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascriptDemo</title>
+</head>
+<script type="text/javascript">
+	var x = 5;
+	var y = '哈哈';
+	function fun1(){
+		alert(y);
+	}
+	// 这里可以省略new
+	var z = Array(1,2,3);
+	function fun2(){
+		for (var i = 0; i < z.length; i++) {
+			alert(z[i]);
+		}
+	}
+	function fun3(){
+		// 如果没有在构造里声明返回对象，必须new生成一个新对象，否则程序内返回未定义
+		// 如果已经声明返回当前对象，不必new;
+		var p1 =  consturctPerson('王八',8,'不男不女');
+		alert(p1.name+','+p1.age+','+p1.sex);
+	}
+	function consturctPerson(name,age,sex){
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+		return this;
+	}
+</script>
+<body>
+	<input type="button" onclick="fun1()" value="显示哈哈">
+	<input type="button" onclick="fun2()" value="遍历数组">
+	<input type="button" onclick="fun3()" value="显示一个人">
+	<div class="div1"></div>
+	<div class="div2"></div>
+	<div class="div3"></div>
+</body>
+</html>

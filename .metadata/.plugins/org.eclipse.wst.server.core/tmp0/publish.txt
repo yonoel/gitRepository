@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Wed Aug 15 10:23:17 CST 2018
+org.eclipse.jst.j2ee.server\:exam=D\:\\apache-tomcat-8.5.32\\works\\exam
+org.eclipse.jst.j2ee.server\:/binary\:D\:\\maven\\localRepository\\org\\springframework\\spring-web\\5.0.7.RELEASE\\spring-web-5.0.7.RELEASE.jar=D\:\\apache-tomcat-8.5.32\\works\\exam\\WEB-INF\\lib\\spring-web-5.0.7.RELEASE.jar

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ajaxForm</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,init-scale=1">
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css
+" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js
+"></script>
+<script type="text/javascript">
+	$(function(){
+		$('form').on('change', '#username', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+			var username = $(this).val();
+			$.ajax({
+				url: '/LessonAfter27Base8.5/AjaxForm',
+				type: 'get',
+				dataType: 'json',
+				data: {
+					message: 'usernametest',
+					username:username
+				},
+			})
+			.done(function() {
+				console.log("success");
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("complete");
+			});
+			
+		});
+		function iterator (argument) {
+			// body... 
+			if(argument != null && argument.length > 0){
+				for (var i = 0; i < argument.length; i++) {
+					console.log(argument[i])	
+				}
+			}
+		}
+
+	})
+
+</script>
+</head>
+
+<body>
+    <form action="">
+        name:
+        <input value="" name="username" id="username" />
+        <br /> name:
+        <input value="" name="userpsd" id="userpsd" />
+        <br />
+        <button type="subbmit">subbmit</button>
+        <button type="reset">reset</button>
+    </form>
+</body>
+
+</html>

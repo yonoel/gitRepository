@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+div{ width:250px;}
+.head{background:#0f7cbf;font:20px bold;line-height:35px; text-indent:1em;color:#fff;}
+.body{font:16px bold;background:#e4f1fa;line-height:30px;text-indent:1em;}
+
+
+
+
+.content {line-height:10px; font-size:12px;}
+
+a{padding:5px ;text-indent:2em}
+
+a.title{color;text-decoration:none;color:#0f7cbf;}
+a.title:visited {text-decoration:none;}  /* 已访问的链接 */
+
+a.s{ color:#666;text-decoration:none;}
+a.s:hover{ color:#F60; text-decoration:underline;}	/* 当有鼠标悬停在链接上 */
+
+

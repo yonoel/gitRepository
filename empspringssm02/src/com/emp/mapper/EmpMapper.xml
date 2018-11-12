@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.emp.mapper.EmpMapper">
+  	
+  	<!-- 解决的是基础类的属性名称与查询出来的字段名称不一致 -->
+  	<resultMap type="EmpInfo" id="empResultMap">
+  		<id property="empno" column="empno"/>
+  		<result property="ename" column="ename"/>
+  		<result property="job" column="job"/>
+  		<result property="mgr" column="mgr"/>
+  		<result property="hiredate" column="hiredate"/>
+  		<result property="sal" column="sal"/>
+  		<result property="comm" column="comm"/>
+  		<result property="deptno" column="deptno"/>
+  		<result property="loginname" column="loginname"/>
+  		<result property="loginpwd" column="loginpwd"/>
+  		<result property="insertdate" column="insertdate"/>
+  		<result property="sex" column="sex"/>
+  		<result property="enjoy" column="enjoy"/>
+  		<association property="mgrinfo" javaType="EmpInfo">
+  			<id property="empno" column="mgr"/>
+  			<result property="ename" column="mgrname"/>
+  		</association>
+  		<association property="deptinfo" javaType="DeptInfo">
+  			<id property="deptno" column="deptno"/>
+  			<result property="dname" column="dname"/>
+  			<result property="loc" column="loc"/>
+  		</association>
+  		
+  	</resultMap>
+  	<select id="queryEmpByLoginName" resultType="EmpInfo">
+  		select * from emp where loginname = #{loginname}
+  		<if test="empno != null">
+  			and empno != #{empno}
+  		</if>
+  	</select>
+  	
+   <select id="queryEmpInfo" resultMap="empResultMap" parameterType="EmpInfo">
+  		select tab1.* from (select tab.*,rownum rn from (
+  		select e.empno,e.ename,e.job,e.mgr,e.hiredate,e.sal,e.comm,e.deptno,e.loginname,e.loginpwd,e.insertdate,e.sex,e.enjoy,
+  		d.dname,mgr.ename mgrname from emp e
+		left join  emp mgr
+		on e.mgr = mgr.empno
+		left join dept d
+		on e.deptno = d.deptno
+		<!-- 加查询条件 -->
+		<where>
+			<if test="ename != null and ename.length() > 0">
+				<bind name="enamelike" value="'%'+ ename +'%'"/>
+				 and e.ename like #{enamelike}
+			</if>
+			<if test="startlike != null">
+				 and e.hiredate >= #{startlike}
+			</if>
+			<if test="endlike != null">
+				 and e.hiredate &lt;= #{endlike}
+			</if>
+			<if test="deptno != null">
+				 and e.deptno = #{deptno}
+			</if>
+		</where>
+		
+		order by e.insertdate desc,e.empno 
+		) tab) tab1 where tab1.rn between #{startNum} and #{endNum}
+  	</select>
+  	
+  	<select id="queryEmpCount" parameterType="EmpInfo" resultType="int">
+  		select count(*) count from emp e
+		left join  emp mgr
+		on e.mgr = mgr.empno
+		left join dept d
+		on e.deptno = d.deptno
+		<!-- 加查询条件 -->
+		<where>
+			<if test="ename != null and ename.length() > 0">
+				<bind name="enamelike" value="'%'+ ename +'%'"/>
+				 and e.ename like #{enamelike}
+			</if>
+			<if test="startlike != null">
+				 and e.hiredate >= #{startlike}
+			</if>
+			<if test="endlike != null">
+				 and e.hiredate &lt;= #{endlike}
+			</if>
+			<if test="deptno != null">
+				 and e.deptno = #{deptno}
+			</if>
+		</where>
+		order by e.insertdate desc,e.empno
+  	</select>
+  	
+  	<select id="queryMgr" resultType="EmpInfo">
+  		select * from emp order by empno desc
+  	</select>
+  	
+  	<select id="queryEmpByNo" resultType="EmpInfo">
+  		select * from emp where empno=#{empno}
+  	</select>
+  	
+  	<select id="queryEmpByNos" resultType="EmpInfo">
+  		<!-- select * from emp where empno in (1,2,4) -->
+  		select * from emp where empno in
+  		<foreach collection="array" index="i" item="empno" open="(" separator="," close=")">
+  			#{empno}
+  		</foreach>
+  	</select>
+  	
+  	
+  	
+  	<insert id="insertEmp" parameterType="EmpInfo">
+  		insert into emp(empno,ename,job,mgr,hiredate,sal,comm,deptno,insertdate,loginname,loginpwd,sex,enjoy) 
+  		values(#{empno},#{ename},#{job},#{mgr},#{hiredate},#{sal},#{comm},#{deptno},sysdate,#{loginname},#{loginpwd},#{sex},#{enjoy})
+  	</insert>
+  	
+  	<update id="updateEmp" parameterType="EmpInfo">
+  		update emp 
+  		set 
+  		ename=#{ename},job=#{job},mgr=#{mgr},hiredate=#{hiredate},sal=#{sal},comm=#{comm},
+  		deptno=#{deptno},insertdate=sysdate,loginname=#{loginname},loginpwd=#{loginpwd},
+  		sex=#{sex},enjoy=#{enjoy} 
+  		where empno=#{empno}
+  	</update>
+  	
+  	<delete id="deleteEmp">
+  		delete from emp where empno=#{empno}
+  	</delete>
+  	
+  	<delete id="deleteEmps">
+  		delete from emp where empno in
+  		<foreach collection="array" index="i" item="empno" open="(" separator="," close=")">
+  			#{empno}
+  		</foreach>
+  	</delete>
+  	
+  </mapper>

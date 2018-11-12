@@ -1,0 +1,11 @@
+package com.igeek.domain;
+
+/**  
+* @ClassName: Animal  
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @date 2018年7月27日 上午10:35:44    
+*    
+*/
+public class Animal {
+
+}

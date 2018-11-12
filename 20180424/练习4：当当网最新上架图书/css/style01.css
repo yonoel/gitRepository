@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+body{font-size:12px;
+	padding:0px;
+	margin:0px;}
+
+.main{ width:600px;}
+.main dl{ width:300px;
+			float:left;}
+.main dl dt{width:90px;
+			float:left;}			
+
+
+
+			
+

@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{background:#EEE7E1;}
+ 
+div {background:#fff;
+	 width:300px;
+	 }
+.title{background:#E9185A;
+       	color:#fff;
+		font:14px;
+		padding:7px;margin:0;
+		text-indent:10px;
+		}
+.ulone{ 
+		padding:0;
+		margin:0;
+		list-style:none;
+		line-height:30px;
+		}
+li{ border-bottom:dotted #666;}		
+
+a{ font-size:12px;color:#666; text-decoration:none;padding-left:10px;}

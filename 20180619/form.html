@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>myfirstform</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+   
+    <div>
+        <form action="post" class="myform">
+            <h4>用户注册</h4>
+            <p>用户名:
+                <input type="text" name="user_name"/>
+            </p>
+        </form>
+    </div>
+    <hr/>
+    <!-- 
+		文本框
+		密码
+		单选按钮
+		复选
+		下拉
+		文件上传
+		文本域
+		自动提交按钮
+		重置按钮
+		普通按钮
+		隐藏域 
+        
+        input 属性：
+		attribute
+			maxlength 
+			checked = "checked"	radio checkbox
+			selected = "selected" select
+			disableed = "disabled" 禁用 不能输入 不能提交
+			readonly = "readonly" 只读 不能输入 可以提交值
+			autofocus = "autofocus" 自动焦点
+            required = "required" 必须填写内容
+            placeholder ="提示信息"
+			
+
+		form 标签	
+		当点击submit按钮时，会将表单中的value自动提交到form的action属性
+		
+
+		action属性:表单提交的资源地址
+			根据name属性来获取值 键值对的方式 name = value,name属性必须要存在
+
+		method属性:get/post
+			get:默认 
+				区别 ：在地址栏上会显示提交的参数，明文传输，速度快
+			post：
+		enctype属性:
+			如果表单中有文件上传，必须有这个属性multipart/form-data,并且提交方式只能是post
+     -->
+    <h4>用户注册</h4>
+    <form action="http:\\www.baidu.com" method="get" enctype="multipart/form-data">
+        <table border="1" cellpadding="0" width="500">
+        	<input type="hidden" name="hiddeninput" value="hiddened"/>
+            <tr>
+                <td>用户名：</td>
+                <td>
+                    <input type="text" name="tuser_name" />
+                </td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td>
+                    <input type="password" name="tpassword">
+                </td>
+            </tr>
+            <tr>
+                <td>性别：</td>
+                <td>
+                    <input type="radio" name="tsex" value="男" />男
+                    <input type="radio" name="tsex" value="女" />女
+                </td>
+            </tr>
+            <tr>
+                <td>兴趣:</td>
+                <td>
+                    <input type="checkbox" name="thobbies" value="打球" />打球
+                    <input type="checkbox" name="thobbies" value="看书" />看书
+                    <input type="checkbox" name="thobbies" value="打游戏" />打游戏
+                </td>
+            </tr>
+            <tr>
+                <td>省份：</td>
+                <td>
+                    <select name="tprovinces">
+                        <option>请选择</option>
+                        <option>江苏</option>
+                        <option>四川</option>
+                        <option>湖北</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>上传个人头像:</td>
+                <td>
+                    <input type="file" name="tfile" />
+                </td>
+            </tr>
+            <tr>
+                <td>个人介绍</td>
+                <td>
+                    <textarea style="width: 400px;height: 300px;" name="introduce"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="提交 " />
+                    <input type="button" name="" onclick="alert(1111)" value="显示1111">
+                    <button onclick="alert('我是button')">btn</button>
+                    <input type="reset" value="重置 " />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

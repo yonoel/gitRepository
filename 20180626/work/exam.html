@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>exam</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="../css/exam.css" rel="stylesheet" type="text/css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
+" type="text/javascript" charset="utf-8" async defer>
+    </script>
+    <script type="text/javascript">
+    var users = new Array();
+
+    function B_register() {
+        // 获取3个框的认证结果1,name,2psd,3email
+        var flag1 = getNameResult();
+        var flag2 = getPsdResult();
+        var flag3 = getEmailResult();
+        if (flag1 && flag2 && flag3) {
+            var user = createUser();
+            users.push(user);
+            alert("注册用户成功,用户名:" + user.name + " 密码:" + user.psd)
+            return true;
+        }
+        return false;
+    }
+
+    function getNameResult() {
+        var name = $(".register input[name='username']").val();
+        // alert(name);
+        // 先测长度6-16
+        // var len = name.length;
+        // if(len<6||16<len){
+        //     alert("用户名长度为6-16");
+        //     return false;
+        // }
+        // 测试匹配数字、字母或_
+        // for (var i = 0; i < len; i++) {
+        //     var c = name.charAt[i]
+        //     alert("用户名只能包含 a-z、0-9 和下划线");
+        //     return false;
+        // }
+        if (!testChar(name, '用户名')) {
+            return false;
+        }
+        return true;
+    }
+
+    function getPsdResult() {
+        var psd1 = $(".register input[name='password1']").val();
+        var repsd = $(".register input[name='repassword']").val();
+        // alert(psd1+repsd);
+        if (psd1 != repsd) {
+            alert("输入的两次密码不一样")
+            return false;
+        }
+        if (!testChar(psd1, '密码')) {
+            return false;
+        }
+        return true;
+    }
+
+    function getEmailResult() {
+        var emailstr = $(".register input[name='emailaddress']").val();
+        var reg = /([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+        if (reg.test(emailstr)) {
+            return true;
+        };
+        alert("邮箱地址有错");
+        return false;
+    }
+
+    function testChar(argument, str) {
+        len = argument.length;
+        if (len < 6 || 16 < len) {
+            alert(str + "长度为6-16");
+            return false;
+        }
+        for (var i = 0; i < len; i++) {
+            var c = argument.charAt(i);
+            if (!('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') || ('0' <= c && c <= '9') || (c == '_')) {
+                alert(str + "只能包含 a-z、0-9 和下划线");
+                return false;
+            }
+        }
+        return true;
+    }
+    self.setInterval(clock, 1000);
+
+    function clock() {
+
+        var time = new Date();
+        var hour = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+        var timestr = zero(hour) + ":" + zero(minutes) + ":" + zero(seconds);
+
+        $('.time')[0].innerHTML = timestr;
+    }
+
+    function zero(argument) {
+        if (argument < 10) {
+            return argument = "0" + argument;
+        }
+        return argument;
+    }
+
+    function selectAll(argument) {
+       /* $('.boxcheck').each(function() {
+            this.checked = argument;
+        });*/
+        $('.boxcheck').prop('checked',argument);
+    }
+    //将注册的内容存储到自定义对象中 写个构造
+    function createUser() {
+        var name1 = $(".register input[name='username']").val();
+        var psd1 = $(".register input[name='password1']").val();
+        // 注意这样返回的是Jquery对象
+        // var hobby1 = $(".boxcheck:checked").val();
+        // alert(hobby.length);
+        this.name = name1;
+        this.psd = psd1;
+        // this.hobby = hobby1;
+        return this;
+    }
+
+    function createCode() {
+        var code = "";
+        for (var i = 0; i < 4; i++) {
+            // 0-9
+            var num = parseInt((Math.random() * 10));
+            code += num;
+        }
+        $('.code').text(code);
+    }
+    // 写登录
+    function dologin() {
+        // 取所有对象的值 全局变量users
+        // 取 登录填写的值
+        var name1 = $(".left input[name='username']").val();
+        var psd1 = $(".left input[name='psd']").val();
+        // 取随机码的值
+        var code1 = $('.code')[0].innerHTML;
+        // 取输入的随机码值
+        var code = $('.patternnumber')[0].value;
+        if (users.length > 0) {
+            for (var i = 0; i < users.length; i++) {
+                var user = users[i];
+                if ((user.name == name1) && (user.psd == psd1) && (code == code1)) {
+                    self.open("../success.html");
+                    return;
+                }
+            }
+
+        }
+         $('.code').text("验证失败");
+        return;
+    }
+    </script>
+</head>
+
+<body onload="clock(),createCode()">
+    <div class="all">
+        <div class="title">
+            <h1>静态页面考试</h1></div>
+            <div id="content">
+                
+            </div>
+        <div class="main" >
+            <div class="left">
+                <p>当前时间：<span class="time"></span></p>
+                <form action="" class="login">
+                    <table>
+                        <tr>
+                            <td class="tleft">登录名</td>
+                            <td class="tright">
+                                <input type="text" name="username">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tleft">密码</td>
+                            <td class="tright">
+                                <input type="password" name="psd">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tleft">验证码</td>
+                            <td class="tright">
+                                <input type="text" name="patternnumber" class="patternnumber">&nbsp;<span class="code">&nbsp;</span><span><a href="javascript:createCode()">&nbsp;看不清</a></span></td>
+                        </tr>
+                        <tr>
+                            <td class="tleft"></td>
+                            <td class="trightbutton">
+                                <input type="button" name="dosubmit" class="buttons" value="登录" onclick="dologin()">
+                                <input type="reset" name="doreset" class="buttons">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="right">
+                <form action="" class="register">
+                    <table>
+                        <caption>
+                            <h1>用户注册</h1></caption>
+                        <tr>
+                            <td class="tleft">用户名:</td>
+                            <td class="tright">
+                                <input type="text" name="username"><span>*</span>用户名请输入6~16位数字、字母或_</td>
+                        </tr>
+                        <tr>
+                            <td class="tleft">密码:</td>
+                            <td class="tright">
+                                <input type="password" name="password1"><span>*</span>密码请输入6~16位数字、字母或_</td>
+                        </tr>
+                        <tr>
+                            <td class="tleft">再次输入密码:</td>
+                            <td class="tright">
+                                <input type="password" name="repassword"><span>*</span></td>
+                        </tr>
+                        <tr>
+                            <td class="tleft">邮箱:</td>
+                            <td class="tright">
+                                <input type="email" name="emailaddress"><span>*</span>请输入正确的邮箱格式：zhangsan@126.com</td>
+                        </tr>
+                        <tr>
+                            <td class="tleft">兴趣:</td>
+                            <td class="tright">
+                                <input type="checkbox" class="boxcheck">打球
+                                <input type="checkbox" class="boxcheck">打牌
+                                <input type="checkbox" class="boxcheck">打游戏 <span>
+                            <a href="javascript:selectAll(true)" >全选</a></span>|<span>
+                            <a href="javascript:selectAll(false)">全不选</a></span></td>
+                        </tr>
+                        <tr>
+                            <td class="tleft"></td>
+                            <td class="trightbutton">
+                                <input type="button" value="注册" class="buttons" onclick="B_register()">
+                                <input type="reset" class="buttons">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="foot">
+            <h1>版权&copy;XXX</h1></div>
+    </div>
+</body>
+
+</html>

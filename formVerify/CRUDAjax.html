@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,init-scale=1">
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css
+" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js
+"></script>
+<style type="text/css" >
+	
+</style>
+    <script type="text/javascript">
+    $(function() {
+    	$.ajax({
+    		url: '/LessonAfter27Base8.5/Empmain',
+    		type: 'get',
+    		dataType: 'json',
+    		data: {
+    			methodflag: 'queryindex',
+			},
+    	})
+    	.done(function(json) {
+    		iterator(json);
+    		
+    	})
+    	.fail(function() {
+    		console.log("error");
+    	})
+    	.always(function() {
+    		console.log("complete");
+    	});
+    	// 封装所有button的点击事件
+    	$('.btns').on('click', 'button', function(event) {
+    		event.preventDefault();
+    		/* Act on the event */
+    		var id = $(this).attr('id');
+    		var page = $('#currentpage').val();
+    		
+    		//根据id改变隐藏域的page属性
+    		if(id.indexOf("first") != -1){		
+    			page = 1;
+    		}else if(id.indexOf("pre") != -1){
+   				page = parseInt(page)-1;
+    		}else if(id.indexOf("next") != -1){
+    			page = parseInt(page)+1;
+    		}else if(id.indexOf("last") != -1){
+    			// 设一个隐藏域来保存总页数
+    			page = 5;
+    		}
+    		$('#currentpage').val(page);
+    		console.log(page);
+    		
+    		$.get('/LessonAfter27Base8.5/Empmain',{methodflag:"query",pagenum:page },function(data) {
+    			/*optional stuff to do after success */
+    			iterator (data);
+    			if(page == 1){
+    				$('#firstbtn').prop('disabled',true);
+    				$('#prebtn').prop('disabled',true);
+    			}
+    			// 设一个隐藏域来保存总页数
+    			if(page == 5){
+    				$('#lastbtn').prop('disabled',true);
+    				$('#nextbtn').prop('disabled',true);
+    			}
+    		},'json');
+
+    	});
+    	// firstbtn
+   //  	$('#firstbtn').on('click',function(event) {
+   //  		event.preventDefault();
+   //  		/* Act on the event */
+   //  		$.ajax({
+   //  				url: '/LessonAfter27Base8.5/Empmain',
+   //  			type: 'get',
+   //  			dataType: 'json',
+   //  		data: {
+   //  			methodflag: 'queryfirst',
+			// },
+   //  		}).done(function(json){
+
+   //  		})
+   //  	});
+   //  	// nextbtn
+   //  	$('#nextbtn').on('click', function(event) {
+   //  		event.preventDefault();
+   //  		/* Act on the event */
+   //  		$.ajax({
+   //  				url: '/LessonAfter27Base8.5/Empmain',
+   //  			type: 'get',
+   //  			dataType: 'json',
+   //  		data: {
+   //  			methodflag: 'query',
+			// },
+   //  		}).done(function(json){
+   //  			$('tbody').children().remove();
+   //  			iterator(json);
+    		
+   //  		})
+   //  	});
+    	function iterator (argument) {
+			// body... 
+			if(argument != null && argument.length > 0){
+				for (var i = 0; i < argument.length; i++) {
+					console.log(argument[i]);
+					var obj = argument[i];
+					var tr =  "<tr><th>"+obj.id+"</th><th>"+obj.name+"</th><th>"+obj.job+"</th><th>"+obj.mgr+"</th><th>"+obj.hireDate+"</th><th>"+obj.sal+"</th><th>"+obj.comm+"</th><th>"+obj.deptNo+"</th></tr>";
+					
+				}
+			}
+		}
+    })
+    </script>
+</head>
+
+<body>
+    <nav class="]nav navbar-default">
+        <div class="container">
+            <h1>CRUD by AJAX</h1>
+        </div>
+    </nav>
+    <div class="container">
+        <form>
+            <div class="container panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading">实现EMP表增删改查使用AJAX技术</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>Name</th>
+                            <th>Job</th>
+                            <th>Mgr</th>
+                            <th>HireDate</th>
+                            <th>Sal</th>
+                            <th>Comm</th>
+                            <th>Deptno</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                <div class="container text-right btns">
+                				<input type="hidden" name="" value="${总页数}" id="totalpage">
+                				<input type="hidden" name="" value="1" id="currentpage">
+                				<button type="button" class="button btn-primary">查询</button>
+                                <button class="btn btn-warning querybtn" id="firstbtn">首页</button>
+                                <button class="btn btn-warning querybtn" id="prebtn">上一页</button>
+                                <button class="btn btn-warning querybtn" id="nextbtn">下一页</button>
+                                <button class="btn btn-warning querybtn" id="lastbtn">尾页</button>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

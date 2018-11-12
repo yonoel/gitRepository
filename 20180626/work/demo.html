@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>demo</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    function fn2(argument) {
+        $('#demop').text(1111);
+    }
+
+    function fn1(argument) {
+        var emailstr = "abcdefg6317qq.com";
+        // var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+$/;
+        var reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+$/;
+        //var reg = new RegExp("^[a-zA-Z0-9_-]+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+$");
+        if (reg.test(emailstr)) {
+            alert(true);
+            return true;
+        }
+        //alert("邮箱地址有错");
+        return false;
+    }
+
+    function fn3(argument) {
+        var hobby1 = $("input:checked");
+       // var hobby1 = $("input[type='checkbox']:checked").map(function(){
+       //      return this.value;
+       //  }).get().join(',');
+       // var hobby1 ="";
+       // var boxes = document.getElementsByName('boxchecks');
+       // for (var i = 0; i < boxes.length; i++) {
+       //      if(boxes[i].checked){
+       //            hobby1 +=boxes[i].value;
+       //             hobby1+=',';
+       //      }     
+       // }
+       // $('#keyarea').on({
+       //      {'keydown':function(){console.log(event.keyCode);},{
+       //      'mouseover':function(){console.log('x:'+event.offsetX+'y:'+event.offsexY)}
+       //  }});
+        alert(hobby1.val());
+    }
+
+    $(function(){
+        $('#demoevent').on('click',function(){
+            alert("方法4测试事件");
+        })
+    });
+    // Binding multiple events with different handlers
+    
+    $(function(){
+
+                    /*$( "#keyarea" ).on({
+                                    "click": function() { console.log( "clicked!" ); }, 
+                                    'keydown':function(){ console.log(event.keyCode); },
+                                   
+                    });*/
+                    $( "#keyarea" ).on('keydown',function(){
+                        console.log(event.which);
+                    });
+                   /* $('body').on({
+                         'mousemove':function(){console.log('x:'+event.pageX+'y:'+event.pageY);},
+                    });
+                    $( "body" ).on({click: function( event ) {alert( "Hello." );}}, "button" );
+                    // An alternative to the previous example, using slightly different syntax.
+                        $( "body" ).on( "click", "button", function( event ) {
+                            alert( "Hello." );
+                        });*/
+                    $( "div" ).on( "click", function(  ) {
+                            console.log( "event object:" );
+                            console.dir( event );
+                        });
+
+    });
+    </script>
+</head>
+
+<body>
+    <div>
+        aaa
+    </div>
+    <button value="but"></button>
+    <input type="text" name="" id="keyarea">
+    <input type="button" name="" onclick="fn1()" value="方法1测试reg">
+    <input type="button" name="" onclick="fn2()" value="方法2测试val方法">
+    <input type="button" name="" onclick="fn3()" value="方法3测试checkbox">
+    <p id="demop"></p>
+    <input type="text" name="" value="" placeholder="" id='demoinput'>
+    <input type="checkbox" class="boxcheck" name="boxchecks" value="打球">打球
+    <input type="checkbox" class="boxcheck" name="boxchecks" value="打牌">打牌
+    <input type="checkbox" class="boxcheck" name="boxchecks" value="打游戏">打游戏
+    <input type="button" name="" value="方法4测试事件" id="demoevent">
+</body>
+
+</html>

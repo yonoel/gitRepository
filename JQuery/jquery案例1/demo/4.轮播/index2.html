@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+
+    .banner {
+        width: 520px;
+        height: 280px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .banner-btn a {
+        display: block;
+        line-height: 40px;
+        position: absolute;
+        top: 120px;
+        width: 40px;
+        height: 40px;
+        background-color: #000;
+        opacity: 0.3;
+        overflow: hidden;
+        z-index: 4;
+    }
+
+    .prevBtn {
+        left: 5px;
+    }
+
+    .nextBtn {
+        right: 5px;
+    }
+
+    .banner-img {
+        position: relative;
+    }
+
+    .banner-img li {
+        float: left;
+        vertical-align: top;
+        font-size: 12px;
+    }
+
+    .banner span {
+        font-size: 30px;
+        color: white;
+        width: 15px;
+        height: 23px;
+        cursor: pointer;
+
+        display: block;
+    }
+
+
+    .banner-circle {
+        position: absolute;
+        left: 50%;
+        bottom: 15px;
+        height: 13px;
+        text-align: center;
+        font-size: 0;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.3);
+        filter: alpha(opacity:30);
+    }
+
+    .banner-circle li {
+        border-radius: 10px;
+        margin: 2px;
+        float: left;
+        vertical-align: middle;
+        zoom: 1;
+    }
+
+    .banner-circle li a {
+        display: block;
+        padding-top: 9px;
+        width: 9px;
+        height: 0;
+        border-radius: 50%;
+        background: #B7B7B7;
+        overflow: hidden;
+    }
+
+    .banner-circle .selected a {
+        background: #F40;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      //当前页
+    var page = 1;
+    var banner;
+    var banner_btn;
+    var banner_img;
+    var banner_circle;
+    var length;
+    var width;
+    var timeid = 0;
+    $(function() {
+        //取得常用的元素对象
+        banner = $(".banner");
+        banner_btn = $(".banner-btn");
+        banner_img = $(".banner-img");
+        banner_circle = $(".banner-circle");
+        //取得li项的个数
+        length = $(".banner-img li").length;
+        //取得一张图片的宽度
+        width = banner.width();
+       
+        // 就是这个框的宽度+大框的hideen 才有滑动效果
+        banner_img.width(width * length);
+
+        //动态画小圆点 有几张图片就有几个小圆点
+        banner_circle.append("<li class='selected'><a href='#'></a></li>");
+        for (var i = 1; i < length; i++) {
+            var circle_li = "<li><a href='#'></a></li>";
+            banner_circle.append(circle_li);
+        }
+        // menu的隐藏
+        banner_btn.hide();
+        // menu的显示和切换
+        banner.hover(function() {
+            banner_btn.show();
+        }, function() {
+            banner_btn.hide();
+            // 设置自动播放 很明显要和点击事件区分开
+            if (timeid == 0) { timeid = window.setInterval(autoplay, 3000); }
+
+        });
+
+        // 点击menu 左右移动
+
+        $('.banner-btn').on('click', 'a', function(event) {
+            event.preventDefault();
+            //将启动器清除
+            window.clearInterval(timeid);
+            timeid = 0;
+            // 清除以后还是会有动画残留，所以再加层判断
+            if (!banner_img.is(':animated')) {
+                // 根据按钮分别做不同的动画效果
+                var classname = $(this).attr("class");
+                /* Act on the event */
+                if (classname == 'prevBtn') {
+                    if (page == 1) {
+                        banner_img.animate({ left: "-=" + width * (length - 1) });
+                        page = length;
+                    } else {
+                        banner_img.animate({ left: "+=" + width }, 'slow');
+                        page--;
+                    }
+                } else if (classname == 'nextBtn') {
+                    if (page != length) {
+                        banner_img.animate({ left: "-=" + width }, 'slow');
+                        page++;
+                    } else {
+                        banner_img.animate({ left: "+=" + width * (length - 1) });
+                        page = 1;
+                    }
+                }
+                showcircle();
+            }
+
+        });
+
+        // 小圆圈的动画
+        function showcircle() {
+            banner_circle.children().removeClass('selected').eq((page - 1)).addClass('selected');
+        }
+
+        // 自动播放的代码
+        function autoplay() {
+            if (page == length) {
+                banner_img.animate({ left: '0px' }, 'slow');
+                page = 1;
+            } else {
+                banner_img.animate({ left: '-=' + width }, 'slow');
+                page++;
+            }
+            showcircle();
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <div align="center" style="width:516px; margin:0 auto">
+        <div class="banner">
+            <div class="banner-btn">
+                <a href="javascript:;" class="prevBtn"><span>&lt;</span></a>
+                <a href="javascript:;" class="nextBtn"><span>&gt;</span></a>
+            </div>
+            <ul class="banner-img">
+                <li><a href="#"><img src="images/T1B1JYFCpdXXazuKP7-520-280.jpg"></a></li>
+                <li><a href="#"><img src="images/T16YtiFE4aXXb1upjX.jpg"></a></li>
+                <li><a href="#"><img src="images/T1Oi0oFrFkXXb1upjX.jpg"></a></li>
+                <li><a href="#"><img src="images/T1LtlPFppjXXb1upjX.jpg"></a></li>
+                <li><a href="#"><img src="images/T1GGJWFvpgXXazuKP7-520-280.jpg"></a></li>
+                <li><a href="#"><img src="images/T104hZFBVdXXazuKP7-520-280.jpg"></a></li>
+            </ul>
+            <ul class="banner-circle"></ul>
+        </div>
+    </div>
+</body>
+
+</html>

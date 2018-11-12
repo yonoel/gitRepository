@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>dom对象</title>
+    <style type="text/css">
+    #div1 {
+        border: 1px solid red;
+        width: 400px;
+        height: 300px;
+    }
+
+    .c1 {
+        font-size: 20px;
+        color: green;
+    }
+
+    .c2 {
+        color: blue;
+        font-size: 10px;
+    }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
+" type="text/javascript" charset="utf-8" async defer>
+    </script>
+    <script type="text/javascript">
+    function fn1() {
+           
+            //访问元素中的属性的话：元素对象.属性名称
+            //根据id=div1取div元素对象   id值唯一，取得的对象一个。
+            // var divobject = document.getElementById("div1");
+
+            
+            //获取元素内容
+            //alert(divobject.innerHTML);
+            //divobject.innerHTML="java68";
+            // alert( $('#div1')[0].innerHTML);
+
+            //改变title属性，改变class属性
+            //alert(divobject.title);
+            //divobject.title="我是java68";
+            //alert(divobject.id);
+
+            //改变class属性 c1--->c2  改变class属性同时样式也发生改变
+            //alert(divobject.className);
+            // divobject.className = "c2";
+        }
+
+    function fn2() {
+        var sex;
+        //根据name属性来获取对象  name属性不唯一 根据name属性获取的对象是多个，多个对象用数组来存储
+        //name=sex
+        $("*[name='sex']").each(function () {
+        	if(this.checked){
+        		sex = this.value;
+        		// each方法不能跳出循环?
+        	}
+        })
+
+        // 获取已经checked的值
+        // var sexobjects = document.getElementsByName("sex");
+        // //alert(sexobjects.length);
+        // for (var i = 0; i < sexobjects.length; i++) {
+        //     var obj = sexobjects[i];
+        //     //alert(obj.value+"--->"+obj.checked);
+        //     if (obj.checked) {
+        //         sex = obj.value;
+        //         //跳出循环
+        //         break;
+        //     }
+        // }
+
+        //取得选中的性别的值
+        alert(sex);
+    }
+
+    function fn3() {
+        //根据标签名称获取元素对象 返回数组
+        // var divobject = document.getElementsByTagName("div");
+        // for (var i = 0; i < divobject.length; i++) {
+        //     alert(divobject[i].innerHTML);
+        // }
+        $("*[name='div']").each(function(){
+        	alert(this.innerHTML);
+        })
+    }
+
+    function fn4() {
+        //根据class属性获取元素对象 返回数组
+        // var objects = document.getElementsByClassName("c1");
+        // for (var i = 0; i < objects.length; i++) {
+        //     alert(objects[i].innerHTML);
+        // }
+          $("*[class='c1']").each(function(){
+        	alert(this.innerHTML);
+        })
+    }
+
+    function selectall(flag) {
+        //根据name=enjoy来获取元素对象
+        // var enjoys = document.getElementsByName("enjoy");
+        // //遍历数组
+        // for (var i = 0; i < enjoys.length; i++) {
+        //     var obj = enjoys[i];
+        //     obj.checked = flag;
+        // }
+        $("*[name='enjoy']").each(function(){
+        	this.checked =flag;
+        })
+    }
+
+    function fn5() {
+        var en = "";
+        // //根据name=enjoy来获取元素对象
+        // var enjoys = document.getElementsByName("enjoy");
+        // //遍历数组
+        // for (var i = 0; i < enjoys.length; i++) {
+        //     var obj = enjoys[i];
+        //     //判断checkbox是否选中
+        //     if (obj.checked) {
+        //         en = en + obj.value + ",";
+        //     }
+        // }
+         $("*[name='enjoy']").each(function(){
+        	if(this.checked){
+        		en = en+this.value+",";
+        	}
+        })
+        if (en.length != 0) {
+            en = en.substr(0, en.length - 1);
+            alert(en);
+        }
+        
+    }
+    </script>
+</head>
+
+<body>
+    <div id="div1" class="c1">
+        <p>关关雎鸠，在河之洲。窈窕淑女，君子好逑。</p>
+        <span>关关雎鸠</span>
+        <div>
+            <h1>在河之洲</h1>
+            <p>窈窕淑女</p>
+        </div>
+    </div>
+    <p class="c1">窈窕淑女</p>
+    <table>
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+        </tr>
+        <tr>
+            <td>0001</td>
+            <td>张三</td>
+        </tr>
+    </table>
+    用户名:
+    <input type="text" id="user" value="admin" />
+    <br /> 性别：
+    <input type="radio" name="sex" value="男" checked="checked" />男
+    <input type="radio" name="sex" value="女" />女
+    <br /> 兴趣：
+    <input type="checkbox" name="enjoy" value="打球" />打球
+    <input type="checkbox" name="enjoy" value="看书" />看书
+    <input type="checkbox" name="enjoy" value="学习" />学习
+    <!--可以将默认点击事件去除-->
+    <a href="javascript:void(0)" onclick="selectall(true)">全选</a> &nbsp;
+    <a href="javascript:selectall(false)">全不选</a>
+    <br /> 省份：
+    <select name="province">
+        <option value="">请选择</option>
+        <option value="js" selected="selected">江苏</option>
+        <option value="zj">浙江</option>
+        <option value="ah">安徽</option>
+        <option value="sh">上海</option>
+    </select>
+    <br /> 个人介绍：
+    <textarea rows="5" cols="20" name="grjs"></textarea>
+    <br />
+    <hr />
+    <input type="button" value="根据id属性获取元素对象 " onclick="fn1()" />
+    <input type="button" value="根据name属性获取元素对象 " onclick="fn2()" />
+    <input type="button" value="取得选中兴趣爱好的值" onclick="fn5()" />
+    <input type="button" value="根据标签名称获取元素对象 " onclick="fn3()" />
+    <input type="button" value="根据class属性获取元素对象 " onclick="fn4()" />
+</body>
+
+</html>

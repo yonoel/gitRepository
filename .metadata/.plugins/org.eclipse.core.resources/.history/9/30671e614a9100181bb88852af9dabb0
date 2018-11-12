@@ -1,0 +1,23 @@
+package com.igeek.main;
+
+import java.util.HashMap;
+import java.util.Map;
+import freemarker.template.Template;
+
+/**
+ * @ClassName: TestFM
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @date 2018年7月27日 上午10:38:18
+ * 
+ */
+public class TestFM {
+    public static void main(String[] args) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("user", "zes");
+        map.put("url", "http://www.baidu.com/");
+        map.put("name", "百度");
+        
+        // 创建模板
+        T
+    }
+}

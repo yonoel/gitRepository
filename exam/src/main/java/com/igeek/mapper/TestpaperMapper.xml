@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.igeek.mapper.TestpaperMapper">
+    <delete id="deleteInList">
+        delete from testpaper where testno in
+        <foreach collection="testnos" index="i" item="testno" open="(" separator="," close=")">
+            #{testno}
+        </foreach>
+    </delete>
+    
+    <update id="setScore" parameterType="int">
+		UPDATE testpaper SET score = (SELECT SUM(score) FROM sub_paper WHERE
+		testno = #{testno}) WHERE testno = #{testno}
+    </update>
+    
+  </mapper>

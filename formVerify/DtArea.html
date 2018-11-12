@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>省市区</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,init-scale=1">
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css
+" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js
+"></script>
+    <script type="text/javascript">
+    $(function() {
+       var provinces = $('#provincestag');
+	    var cities = $('#citiestag');
+	    var zones = $('#zonestag');
+
+        // 获取provinces的值
+        $.ajax({
+            url: "/LessonAfter27Base8.5/AreaSelect",
+            data: {
+                message: "getProvinces"
+            },
+            type: "get",
+            dataType: "json"
+        }).done(function(json) {
+            iterator(json, provinces);
+
+        })
+        //获取cities
+        provinces.on('change', function(event) {
+            event.preventDefault();
+            /* Act on the event */
+           $("#citiestag option:gt(0)").remove();
+            $.ajax({
+                url: "/LessonAfter27Base8.5/AreaSelect",
+                data: {
+                    message: "getProvinces",
+                    parentid: provinces.val(),
+                },
+                type: "get",
+                dataType: "json"
+            }).done(function(json) {
+                iterator(json, cities);
+
+            })
+        });
+
+        //获取zones
+        cities.on('change', function(event) {
+            event.preventDefault();
+            /* Act on the event */
+           $("#zonestag option:gt(0)").remove();
+            $.ajax({
+                url: "/LessonAfter27Base8.5/AreaSelect",
+                data: {
+                    message: "getzones",
+                    parentid: cities.val(),
+                },
+                type: "get",
+                dataType: "json"
+            }).done(function(json) {
+                iterator(json, zones);
+
+            })
+        });
+
+        function iterator(json, selector) {
+            if (json != null && json.length > 0) {
+                for (var i = 0; i < json.length; i++) {
+                    var obj = json[i];
+                    //创建option元素
+                    var option = "<option value='" + obj.id + "'>" + obj.name + "</option>";
+                    selector.append(option);
+                }
+            }
+
+        }
+
+
+
+    })
+    </script>
+</head>
+
+<body>
+    <select id="provincestag" name="provinces">
+        <option value="dochoice">请选择</option>
+    </select>
+    <select id="citiestag" name="cities">
+        <option value="dochoice">请选择</option>
+    </select>
+    <select id="zonestag" name="zones">
+        <option value="dochoice">请选择</option>
+    </select>
+</body>
+
+</html>

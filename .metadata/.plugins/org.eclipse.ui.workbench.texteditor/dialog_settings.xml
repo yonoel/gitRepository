@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="489" key="DIALOG_X_ORIGIN"/>
+		<item value="300" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.jst.jsp.ui.internal.preferences.ui.JSPTemplatePreferencePage$JSPEditTemplateDialog_dialogBounds">
+		<item value="1440" key="DIALOG_WIDTH"/>
+		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
+		<item value="860" key="DIALOG_HEIGHT"/>
+		<item value="8" key="DIALOG_X_ORIGIN"/>
+		<item value="8" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="RequestMappings" key="selection"/>
+		<item value="true" key="casesensitive"/>
+		<item value="true" key="incremental"/>
+		<item value="false" key="wrap"/>
+		<item value="true" key="wholeword"/>
+		<list key="findhistory">
+			<item value="RequestMappings"/>
+			<item value="测试"/>
+			<item value="autopapertable"/>
+			<item value="题目类型"/>
+			<item value="messageconverters"/>
+			<item value="convert"/>
+			<item value="string"/>
+			<item value="testno"/>
+			<item value="toJSON"/>
+			<item value="删除"/>
+			<item value="readJsonSubmit"/>
+			<item value="checkpaper"/>
+			<item value="tsart"/>
+			<item value="init"/>
+			<item value="inite"/>
+		</list>
+		<list key="replacehistory">
+			<item value=""/>
+			<item value="subjectform"/>
+			<item value="subjectbox"/>
+			<item value="subject"/>
+			<item value="Subject"/>
+			<item value="propertiesConfig"/>
+			<item value="jsp"/>
+			<item value="order"/>
+			<item value="get"/>
+			<item value="submit"/>
+			<item value="method"/>
+			<item value="fConfig"/>
+			<item value="flag"/>
+			<item value="writer"/>
+		</list>
+	</section>
+	<section name="org.eclipse.wst.xml.ui.internal.preferences.XMLTemplatePreferencePage$XMLEditTemplateDialog_dialogBounds">
+		<item value="924" key="DIALOG_WIDTH"/>
+		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
+		<item value="860" key="DIALOG_HEIGHT"/>
+		<item value="133" key="DIALOG_X_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="300" key="DIALOG_WIDTH"/>
+		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
+		<item value="434" key="DIALOG_HEIGHT"/>
+		<item value="786" key="DIALOG_X_ORIGIN"/>
+		<item value="353" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

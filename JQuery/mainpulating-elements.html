@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>manipulating-elements</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    // Changing the HTML of an element.
+    $(function() {
+        $("#myDiv p:first").html("New <strong>first</strong> paragraph!");
+    });
+    //Moving, Copying, and Removing Elements
+    // Moving elements using different approaches.
+
+    // Make the first list item the last list item:
+    var li = $("#myList li:first").appendTo("#myList");
+
+    // Another approach to the same problem:
+    $("#myList").append($("#myList li:first"));
+
+    // Note that there's no way to access the list item
+    // that we moved, as this returns the list itself.
+    // $(function(){
+    //  $("p").appendTo("div");
+    // });
+    $(function() {
+        $("div:not(#myDiv)").append($("p"));
+    });
+    // Creating new elements from an HTML string.
+
+    var newP = $("<p>This is a new paragraph</p>");
+    $(function() {
+        newP.appendTo("#myDiv");
+        $("div").last().after(newP.clone());
+        // Creating and adding an element to the page at the same time.
+        $(".class3").append("<li>list item</li>");
+        //  many elements to the same container
+        var myItems = [];
+        var myList = $("#myList");
+
+        for (var i = 0; i < 20; i++) {
+            myItems.push("<li>item " + i + "</li>");
+        }
+
+        myList.append(myItems.join(""));
+    });
+
+    $("<li class=\"new\">new list item</li>");
+    // Manipulating Attributes
+    // Manipulating a single attribute.
+    $("#myDiv a:first").attr("href", "newDestination.html");
+    // Manipulating multiple attributes.
+    $("#myDiv a:first").attr({
+        href: "newDestination.html",
+        rel: "nofollow"
+    });
+    // Using a function to determine an attribute's new value.
+    $("#myDiv a:first").attr({
+        rel: "nofollow",
+        href: function(idx, href) {
+            return "/new/" + href;
+        }
+    });
+
+    $("#myDiv a:first").attr("href", function(idx, href) {
+        return "/new/" + href;
+    });
+    </script>
+</head>
+<div id="myDiv">
+    <p></p>
+</div>
+<hr>
+<p>I would like to say: </p>
+<div></div>
+<hr>
+<div class="class3">
+    <li id="myList" type="A"></li>
+</div>
+
+<body>
+</body>
+
+</html>

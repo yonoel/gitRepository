@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+body,ul,p,h1{ margin:0;
+		   padding:0;
+		   list-style:none;
+		   font-size:12px;}
+#head{ width:960px;
+		margin:0 auto;}
+#head .head_top{ background:#EBEBEB url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/forumLogo.png) no-repeat;
+				 text-align:right;}
+#head ul{ background-color:#383838;
+		  height:33px;}				 
+#head ul li{ float:left;
+			 font-size:14px;
+			 font-weight:bold;
+			 line-height:33px;
+			 background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/forumMenuBg.gif) no-repeat right 2px;
+			 /*padding:0 15px;*/}
+#head ul li a{ color:#FFF;
+			   text-decoration:none;
+			   padding:0 15px;
+			   display:block;
+			   }
+/*#head ul li:hover{ background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/forumMenuBg.jpg) repeat-x;}*/
+#head ul li a:hover{ background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/forumMenuBg.jpg) repeat-x;}
+#content{ width:960px;
+	      margin:0 auto;
+		  background-color:#EBEBEB;
+		  padding-top:10px;}
+#content .left{ padding-left:20px;
+				float:left;}
+#content .left .vedio_image{ background-color:#000;
+						     width:520px;
+							 padding:25px 50px;}
+#content .left p{ line-height:20px;}
+#content .left .title{ font-weight:bold;
+						font-size:14px;
+						padding-left:10px;}
+#content .left .times{ background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-01.jpg) no-repeat 10px 0;
+			           padding-left:28px;}
+#content .left .click{ background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-02.jpg) no-repeat;
+					   padding-left:18px;}
+					   
+#vedio{ width:300px;
+	    background-color:#CDD6DB;
+		font-size:12px;
+		float:right;}
+#vedio h1{ font-size:14px;
+	       background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-03.jpg) repeat-x;
+		   color:#FFF;
+		   line-height:30px;
+		   padding-left:10px;}
+#vedio ul { margin:10px 0 0 10px;}
+#vedio ul li{ float:left;
+			  width:145px;}
+#vedio ul li img{ border:2px solid #FFF;}
+#vedio ul li p{ line-height:26px;
+				}
+#vedio ul li .title{ font-weight:bold;
+					 padding-left:10px;}
+#vedio ul li .times{ background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-01.jpg) no-repeat 10px 2px;
+					 /*padding-left:28px;*/}
+#vedio ul li .click{ background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-02.jpg) no-repeat 10px 2px;
+			        /*padding-left:28px;*/}
+.times,.click{ padding-left:28px;}
+.clear{ clear:both;}
+.foot{ width:960px;
+	   margin:0 auto;
+	   background-color:#EBEBEB;
+	   text-align:center;
+	   line-height:35px;
+	   border-top:1px solid #000;}
+

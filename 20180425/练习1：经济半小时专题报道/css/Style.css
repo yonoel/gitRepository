@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+dl,dt,dd,p{ margin:0;
+		   padding:0;}
+.economics{ width:736px;
+		    height:559px;
+			border:1px solid #C6C6C6;
+			margin:0 auto;
+			background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/adver-01.jpg) no-repeat center;
+			font-size:12px;}
+.content{ padding-top:80px;}
+.first{
+		width:626px;
+		margin:0 auto;}
+.first dl dt{ width:286px;
+			  float:left;}
+.first dl dd{ width:340px;
+			  float:left;}
+dd p{ line-height:22px;}

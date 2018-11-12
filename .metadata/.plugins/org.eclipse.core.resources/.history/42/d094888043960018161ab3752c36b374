@@ -1,0 +1,37 @@
+package com.igeek.config.mvc;
+
+import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration.ResourceHandlerRegistrationCustomizer;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties;
+import org.springframework.context.annotation.Configuration;
+
+/**  
+* @ClassName: MyConfig  
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @date 2018年8月2日 下午7:01:15    
+*    
+*/
+@Configuration
+public class MyConfig extends WebMvcAutoConfigurationAdapter{
+
+    /**  
+    * @Title: MyConfig  
+    * @param resourceProperties
+    * @param mvcProperties
+    * @param beanFactory
+    * @param messageConvertersProvider
+    * @param resourceHandlerRegistrationCustomizerProvider    
+    */
+    public MyConfig(ResourceProperties resourceProperties, WebMvcProperties mvcProperties,
+            ListableBeanFactory beanFactory, ObjectProvider<HttpMessageConverters> messageConvertersProvider,
+            ObjectProvider<ResourceHandlerRegistrationCustomizer> resourceHandlerRegistrationCustomizerProvider) {
+        super(resourceProperties, mvcProperties, beanFactory, messageConvertersProvider,
+                resourceHandlerRegistrationCustomizerProvider);
+        // TODO Auto-generated constructor stub
+    }
+
+}

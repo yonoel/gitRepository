@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>caculator</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript">
+    	function getNum(thiss) {
+    		// var ref = document.getElementById(num).value
+    		var x = thiss.value;
+            var con = getContent();
+    		setContent(con+x);
+    	}
+		function getContent() {
+			var cont = document.getElementById('content').value;
+			return cont;
+		}
+		function setContent(str){
+			document.getElementById('content').value = str+"";
+		}
+		function caculator(){
+			var cont = getContent();
+			var result = eval(cont);
+			document.getElementById('result').value = result;
+		}
+        function clearAll() {
+           setContent("");
+           document.getElementById('result').value = "";
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="button" value="1" id="num1"  onclick="getNum(this)" name="numlo">
+        <input type="button" value="2" id="num2" onclick="getNum(this)">
+        <input type="button" value="3" id="num3" onclick="getNum(this)">
+        <input type="button" value="+" id="+" onclick="getNum(this)">
+        <br>
+        <input type="button" value="4" id="num4" onclick="getNum(this)">
+        <input type="button" value="5" id="num5" onclick="getNum(this)">
+        <input type="button" value="6" id="num6" onclick="getNum(this)">
+        <input type="button" value="-" id="-" onclick="getNum(this)"> 
+        <br>
+        <input type="button" value="7" id="num7" onclick="getNum(this)">
+        <input type="button" value="8" id="num8" onclick="getNum(this)">
+        <input type="button" value="9" id="num9" onclick="getNum(this)">
+        <input type="button" value="*" id="*" onclick="getNum(this)">
+        <br>
+        <input type="button" value="0" id="num0" onclick="getNum(this)">
+        <input type="button" value="." id="pot" onclick="getNum(this)">
+        <input type="button" value="=" id="cacul" onclick="caculator()">
+        <input type="button" value="/" id="/" onclick="getNum(this)">
+        <br>
+        <input type="button" name="clear" value="清空" onclick="clearAll()"><br>
+        <input type="text" id="content">
+        <br>
+        <input type="text" id="result">
+        <br>
+    </form>
+</body>
+
+</html>

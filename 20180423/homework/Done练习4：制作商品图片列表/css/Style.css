@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+
+#nav{width:210px;}
+
+div{margin:0px}
+.title {background:#9874F2;}
+.head {font-size:18px;color:#fff; font-weight:bold; padding:10px; font-family:"楷体";margin:0px; }
+		
+		
+ img:hover {border:solid; border-width:2px; border-color:#E69656}     

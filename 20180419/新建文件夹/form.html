@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单页面</title>
+</head>
+
+<body>
+	<form method="get" action="login_success.html" enctype="multipart/form-data">
+    	姓名:<input type="text" name="name" maxlength="30" placeholder="admin"/><br />
+        密码:<input type="password" name="password" size="20"/><br />
+        性别:<input type="radio" checked="checked" value="男" name="sex"/>男
+            <input type="radio" value="女" name="sex"/>女<br />
+        兴趣:<input type="checkbox" checked="checked" value="打游戏" name="hobby"/>打游戏&nbsp;&nbsp;
+            <input type="checkbox" value="唱歌" name="hobby"/>唱歌&nbsp;&nbsp;
+            <input type="checkbox" value="看书" name="hobby"/>看书&nbsp;&nbsp;<br />
+        图片:<input type="file"/><br />
+        年龄:<select name="year">
+        		<option value="1990">1990</option>
+                <option>1991</option>
+                <option>1992</option>
+                <option>1993</option>
+                <option>1994</option>
+                <option selected="selected">1995</option>
+                <option>1996</option>
+                <option>1997</option>
+                <option>1998</option>
+                <option>1999</option>
+            </select>年
+            <select name="month">
+            	<option value="0">1</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+                <option value="3">4</option>
+                <option value="4">5</option>
+                <option value="5">6</option>
+                <option value="6">7</option>
+                <option value="7">8</option>
+                <option value="8">9</option>
+                <option value="9">10</option>
+                <option value="10">11</option>
+                <option value="11">12</option>
+            </select>月
+            <select name="day">
+            	<option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>日
+            <br />
+            <textarea name="agreement" cols="30" rows="5">1. 特别提示
+				1.1北京新浪互联信息服务有限公司(Beijing SINA Internet Information Service Co. Ltd.)、新浪网技术（中国）有限公司(Sina.com Technology (China) Co., Ltd.)及相关关联企业（以下合称“新浪”）同意按照本协议的规定及其不时发布的操作规则提供基于互联网以及移动网的相关服务（以下称“网络服务”），为获得网络服务，服务使用人（以下称“用户”）应当同意本协议的全部条款并按照页面上的提示完成全部的注册程序。用户在进行注册程序过程中点击“同意”按钮即表示用户完全接受本协议项下的全部条款。
+1.2用户注册成功后，新浪将给予每个用户一个用户帐号及相应的密码，该用户帐号和密码由用户负责保管；用户应当对以其用户帐号进行的所有活动和事件负法律责任。
+1.3用户注册成功后，在使用新浪/新浪微博服务的过程中，新浪公司有权基于用户的操作行为进行非商业性的调查研究。
+2. 服务内容
+2.1新浪网络服务的具体内容由新浪根据实际情况提供，例如博客、播客、在线音乐、搜索、手机图片铃声下载、交友、论坛(BBS)、聊天室、电子邮件、发表新闻评论等。
+2.2新浪提供的部分网络服务（例如手机图片铃声下载、电子邮件等）为收费的网络服务，用户使用收费网络服务需要向新浪支付一定的费用。对于收费的网络服务，新浪会在用户使用之前给予用户明确的提示，只有用户根据提示确认其愿意支付相关费用，用户才能使用该等收费网络服务。如用户拒绝支付相关费用，则新浪有权不向用户提供该等收费网络服务。
+2.3用户理解，新浪仅提供相关的网络服务，除此之外与相关网络服务有关的设备（如个人电脑、手机、及其他与接入互联网或移动网有关的装置）及所需的费用（如为接入互联网而支付的电话费及上网费、为使用移动网而支付的手机费）均应由用户自行负担。	
+            </textarea><br />
+        <input type="reset" value="重置"/>&nbsp;&nbsp;
+        <input type="submit" value="登录"/>&nbsp;&nbsp;<br />
+        <!--<input type="button" value="注册"/>-->
+        <input type="image" src="images/btnRegist.jpg"/>
+    </form>
+</body>
+</html>

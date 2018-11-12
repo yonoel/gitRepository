@@ -1,0 +1,24 @@
+frameset	不能与 body标签共用
+		cols = "a,b,c" 根据coloum切 框架
+		rows = "a,b,c"	根据row来切
+	iframe 内嵌框架
+
+html元素
+base
+	设置默认页面的打开方式
+	target 
+	设置超链接的默认页面
+	href
+meta 
+	提供原数据
+	*content(必须存在相当于值的声明)提供值
+	name value:keywords content
+	http-equiv属性
+html字符实体
+	转义字 &nbsp &lt< &gt>
+html多媒体
+	embed 标签 src属性
+	object 标签 data属性	
+	video    ogg,mpeg4,webm
+ 
+		

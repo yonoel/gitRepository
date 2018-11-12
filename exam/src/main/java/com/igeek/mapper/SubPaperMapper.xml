@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.igeek.mapper.SubPaperMapper">
+		<delete id="deleteInList">
+				delete from sub_paper where testno in
+				<foreach collection="testnos" index="i" item="testno"
+						open="(" separator="," close=")">
+						#{testno}
+				</foreach>
+		</delete>
+
+		<select id="selectCountInList" resultType="int">
+				SELECT count(*) FROM sub_paper WHERE testno in
+				<foreach collection="testnos" index="i" item="testno"
+						open="(" separator="," close=")">
+						#{testno}
+				</foreach>
+		</select>
+		<resultMap id="SubjectDTOResultMap" type="com.igeek.DTO.SubjectDTO">
+				<id property="subno" column="subno" />
+				<result property="subType" column="sub_type" />
+				<result property="difficulty" column="difficulty" />
+				<result property="subContent" column="sub_content" />
+				<result property="optiona" column="optiona" />
+				<result property="optionb" column="optionb" />
+				<result property="optionc" column="optionc" />
+				<result property="optiond" column="optiond" />
+				<result property="answer" column="answer" />
+				<result property="subAnalysis" column="sub_analysis" />
+                <result property="score" column="score" />
+		</resultMap>
+
+		<select id="selectSubjectDTOByTestno"
+				resultMap="SubjectDTOResultMap">
+				SELECT s.*,p.score FROM subject s INNER JOIN
+				(SELECT * FROM
+				sub_paper WHERE testno = #{testno}) p on s.subno =
+				p.subno
+		</select>
+</mapper>

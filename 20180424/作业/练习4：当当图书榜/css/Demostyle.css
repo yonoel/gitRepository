@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+.clear {clear:both;}
+dd,p,a,ul,li,dd,dl,dt{font-size:12px;
+		text-decoration:none;
+		padding:0;
+		margin:0;
+		}
+
+#head,#main{width:960px;
+			padding:0;
+			margin:0 auto;}
+			
+#head .logid{float:right;
+			width:230px;
+			background-color:#EAFFFA;
+			line-height:20px;
+			text-indent:20px;
+			margin-top:23px;
+			
+	}
+#head .logid a{color:#666;
+				
+				}			
+#head .menuu{
+		width:960px;
+		height:38px;
+		background-color:#FE6915;
+		margin-bottom:7px;
+		}
+#head .menuu .menu{list-style:none;
+			} 	
+#head .menuu .menu li{ float:left;
+						width:35px;
+					padding-left:20px;
+					padding-right:0;
+					padding-top:10px;
+					
+				}
+#head .menuu .menu li a{color:#E7FFFC;
+						font-size:14px;
+						font-weight:bold;
+						display:block;}
+#head .menuu .menu li:hover{background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/menuBg.jpg) repeat-x; text-decoration:underline}						
+
+#main {border:1px solid #D3E8A5;
+		margin-top: 5px;
+		width:960px;
+		overflow:hidden;}
+
+	
+#main .cont .cash{color:#F00; 
+				font-weight:bold;}	
+#main .cont .pcash{color:#468E76;}				
+#main .cont pre{line-height:22px;}	
+#main .cont dl{float:left;
+		 	   width:350px;}
+#main .cont dl dt{float:left;}		 		
+#main .cont a{ font-size:14px;
+				color:#1374D5}
+
+											
+#main .cont .right{float:right;
+ 				width:400px;}
+				
+#main .cont .right dl{float:left;
+		 	   width:400px;}	
+#main .cont .right dl dt{float:left;
+				width:100px;
+				}	
+#main .cont .right dl dt dd{float:left;
+				width:280px;
+				}
+								   
+#foot {text-align:center;
+		color:#666;
+		font-size:10px;
+		line-height:48px;
+		background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/validate.gif) no-repeat 645px;}
+					   														

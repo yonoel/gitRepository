@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* CSS Document */
+
+#all{width:1000px;
+	height:1500px;
+	border:0;
+	margin:0 auto;
+	background:#EBEBEB;}
+#all .head {margin-bottom:10px;}
+#all .head .left{float:left}
+#all .head .right{float:right}
+#all .head .head2{ height:80px; 
+		}
+#all .head .main{width:1000px;
+		
+		background-color:#373737;}		
+		
+#all .head .main ul{list-style:none;
+		
+		height:33px;
+		padding:0;
+		margin:0;
+	}
+	
+#all .head .main ul li{ font-size:14px;
+		font-weight:bold;
+		line-height:33px;
+		margin:0;
+		padding:0 15px;
+		float:left;
+		background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/forumMenuBg.gif) no-repeat right 2px;
+		}
+		
+		
+		
+#all .head .main ul li a{color:#fff; text-decoration:none;display:block;}
+#all .head .main ul li:hover{ background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/forumMenuBg.jpg) repeat-x ;}
+	
+#all #nav { width:300px;
+			float:right;}
+			
+#all #nav .head2{background:#2B507C;
+			font-size:16px;
+			font-weight:bold;
+			color:#FFF;
+			padding:8px;
+			text-indent:10px;
+			}
+			
+#all #nav .main{background:#CDD4DC;
+			}
+			
+#all #nav .main table{cellspacing:10px;border:2px #000000;}
+			
+#all #nav .main table .imgs{border:#FFF 2px solid;}
+			
+#all #nav .main table td{ padding:0px;}
+			
+#all #nav .main table .name{font-size:9px; font-weight:bold;margin:0; text-indent:8px; }
+#all #nav .intr{font-size:9px; margin:0; text-indent:20px; background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-01.jpg) no-repeat;}
+			
+#all #nav .main table .intr2{font-size:9px; margin:0; text-indent:20px; background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-02.jpg)  no-repeat; }
+#all #nav .main table .imgs2{padding-left:8px;}
+
+#all .body .left { width:500px; float:left;}
+#all .body .left .blimg{background-color:#000; padding:15px 30px;border:1px solid #000;
+		position:absolute;margin:0 20px;}
+#all .body .left .bdcont{position:absolute;left:200px;top:450px;font-size:12px;}
+#all .body .left .bdcont .text1{font-weight:bold}
+#all .body .left .bdcont ul{ list-style:none;padding:0;}
+#all .body .left .bdcont ul li{display:inline;}
+#all .body .left .bdcont ul .intr{font-size:9px; margin:0; padding-left:18px; background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-01.jpg) no-repeat;}
+#all .body .left .bdcont ul .intr2{font-size:9px; margin:0; padding-left:18px; background:url(../%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90/icon-02.jpg)  no-repeat; }
+
+#all .body .clear{clear:both;}
+
+
+
+
+
+
+
+#all .head{}
+		
+#all .foot{font:bolder 12px; text-align:center;}

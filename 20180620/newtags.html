@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+    function checkfrom() {
+        /*var user = document.getElementById("user").value;
+        if(user.length==0){
+        	alert("用户名不能输入");
+        	return false;
+        }
+				
+        return true;*/
+
+        //验证邮箱
+        /*var email = document.getElementById("email").value;
+        if(email.indexOf("@") == -1){
+        	alert("不满足邮箱的规则");
+        	return false;
+        }
+        return true;*/
+    }
+    </script>
+</head>
+
+<body>
+    <!--onsubmit事件什么触发？ 当点击提交按钮提交之前触发onsubmit事件，在事件中可以做表单验证
+			
+		-->
+      
+
+    </ul>
+    <form action="div布局.html" method="get">
+        用户名：
+        <input type="text" id="user" name="user" autocomplete="off" />
+        <br /> 邮箱：
+        <input type="email" id="email" name="email" />
+        <br /> Homepage:
+        <input type="url" name="user_url" />
+        <br /> Points:
+        <input type="number" name="points" min="1" max="10" value="1" />
+        <br /> Date:
+        <input type="date" name="user_date" />
+        <br /> Time:
+        <input type="time" name="user_date" />
+        <br /> search:
+        <input type="search" name="user_date" />
+        <br /> color:
+        <input type="color" name="user_date" />
+        <br /> 城市：
+        <input type="text" id="city" list="city_list" />
+        <datalist id="city_list">
+            <option label="cz" value="常州" />
+            <option label="nj" value="南京" />
+            <option label="cs" value="常熟" />
+            <option label="sz" value="苏州" />
+            <option label="nt" value="南通" />
+        </datalist>
+        <input type="submit" value="提交" />
+    </form>
+</body>
+
+</html>

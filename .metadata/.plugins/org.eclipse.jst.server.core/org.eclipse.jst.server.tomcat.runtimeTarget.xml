@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<classpath>
+  <source-attachment entry="D:/apache-tomcat-8.5.32/lib/catalina.jar" runtime-id="Apache Tomcat v8.5" source-attachment-path="D:/apache-tomcat-8.5.32-src"/>
+  <source-attachment entry="D:/apache-tomcat-8.5.32/lib/jasper-el.jar" runtime-id="Apache Tomcat v8.5" source-attachment-path="D:/apache-tomcat-8.5.32-src"/>
+  <source-attachment entry="D:/apache-tomcat-8.5.32/lib/jasper.jar" runtime-id="Apache Tomcat v8.5" source-attachment-path="D:/apache-tomcat-8.5.32-src"/>
+  <source-attachment entry="D:/apache-tomcat-8.5.32/lib/jsp-api.jar" runtime-id="Apache Tomcat v8.5" source-attachment-path="D:/apache-tomcat-8.5.32-src">
+    <attribute name="source_encoding" value="UTF-8"/>
+  </source-attachment>
+  <source-attachment entry="D:/apache-tomcat-8.5.32/lib/servlet-api.jar" runtime-id="Apache Tomcat v8.5" source-attachment-path="D:/apache-tomcat-8.5.32-src"/>
+</classpath>

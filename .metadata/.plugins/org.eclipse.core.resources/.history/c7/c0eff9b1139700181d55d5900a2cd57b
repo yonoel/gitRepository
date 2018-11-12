@@ -1,0 +1,96 @@
+package com.igeek.mvc.config;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.apache.ibatis.plugin.Interceptor;
+import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.alibaba.druid.pool.DruidDataSource;
+import com.github.pagehelper.PageInterceptor;
+
+import tk.mybatis.mapper.common.Mapper;
+import tk.mybatis.mapper.entity.Config;
+import tk.mybatis.mapper.mapperhelper.MapperHelper;
+import tk.mybatis.spring.annotation.MapperScan;
+
+/**
+ * @ClassName: AppConfig
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @date 2018年8月3日 下午4:09:40
+ * 
+ */
+@Configuration
+@ComponentScan
+@PropertySource("classpath:application.properties")
+@MapperScan(basePackages = "com.igeek.mvc.dao",value = "tk.mybatis.mapper.annotation", mapperHelperRef = "mapperHelper") // 扫描Mybatis的Mapper接口
+@EnableTransactionManagement // 开启事务管理
+public class AppConfig {
+    /**
+     * 配置数据源
+     *
+     * @date 2018/6/24
+     **/
+    @Bean
+    public DataSource dataSource() {
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setUsername("root");
+        dataSource.setPassword("123456");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/project");
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        return dataSource;
+    }
+
+    /**
+     *
+     * @param dataSource
+     * @param propertiesConfig
+     * @return
+     * @throws Exception
+     */
+    @Bean
+    public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) throws Exception {
+        SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource());
+        Interceptor interceptor = new PageInterceptor();
+        sessionFactory.setPlugins(new Interceptor[] {interceptor});
+       
+      
+          tk.mybatis.mapper.session.Configuration configuration = new
+        tk.mybatis.mapper.session.Configuration();
+         configuration.setMapperHelper(new MapperHelper());
+         sessionFactory.setConfiguration(configuration);
+        
+
+        return sessionFactory;
+
+    }
+
+    @Bean
+    public SqlSession SqlSession(SqlSessionFactoryBean sqlSessionFactoryBean) throws Exception {
+        return sqlSessionFactoryBean.getObject().openSession();
+    }
+    
+    @Bean
+    public MapperScannerConfigurer MapperScannerConfigurer() {
+        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+        mapperScannerConfigurer.setBasePackage("com.igeek.mvc.dao");
+        return mapperScannerConfigurer;
+    }
+    
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+        return propertySourcesPlaceholderConfigurer;
+    }
+}

@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+
+div{ width:170px;
+	background:#F5F9FC;}
+
+ul{list-style:none;padding:0;}
+
+.title{font:bold 14px;}

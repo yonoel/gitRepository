@@ -1,0 +1,18 @@
+package com.igeek.SpringBootStudy.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**  
+* @ClassName: HelloWorldController  
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @date 2018年7月27日 下午1:39:11    
+*    
+*/
+@RestController
+public class HelloWorldController {
+    @RequestMapping("/hello")
+    public String sayHello() {
+        return "Hello";
+    }
+}

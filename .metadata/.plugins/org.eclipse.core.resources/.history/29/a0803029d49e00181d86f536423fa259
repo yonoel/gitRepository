@@ -1,0 +1,48 @@
+package com.igeek.spring4;
+
+import static java.lang.System.err;
+import static java.lang.System.out;
+
+import org.apache.naming.java.javaURLContextFactory;
+
+import com.igeek.DTO.SubjectDTO;
+import com.igeek.domain.Subject;
+import com.sun.java.util.jar.pack.Package.Class.Method;
+
+/**
+ * @ClassName: Study
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @date 2018年8月11日 下午3:17:18
+ * 
+ */
+public class Study {
+    public static void main(String[] args) {
+
+        Class clasz = SubjectDTO.class.getClass();
+//        java.lang.reflect.Method getAnswer = clasz.getMethod("getAnswer", null);
+        java.lang.reflect.Method[] methods = clasz.getMethods();
+        /*
+         * SubjectDTO subjectDTO = new SubjectDTO(); Object object =
+         * subjectDTO.getClass().asSubclass(subjectDTO.getClass().getSuperclass(
+         * ));
+         * 
+         * int length = subjectDTO.getClass().getClasses().length; Class father
+         * = Subject.class; length = father.getDeclaredClasses().length; boolean
+         * flag = father.isMemberClass(); err.print(flag); err.print(length);
+         * out.print(subjectDTO.getClassName());
+         */
+        /*
+         * Type[] types = SubPaperServiceImpl.class.getGenericInterfaces(); for
+         * (int i = 0; i < types.length; i++) { System.out.println(types[i]); }
+         */
+        /*
+         * ResolvableType resolvableType1 =
+         * ResolvableType.forClass(SubPaperServiceImpl.class);
+         * System.out.println(resolvableType1.getType());
+         */
+        /*
+         * Object object = new Object();
+         * System.out.println(object.getClass().getSuperclass());
+         */
+    }
+}

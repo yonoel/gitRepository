@@ -1,0 +1,16 @@
+package study.domain;
+
+import java.lang.reflect.Array;
+
+/**
+ * @ClassName: ChildChild
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @date 2018年8月21日 下午7:33:34
+ * 
+ */
+public abstract class ChildChild extends Child {
+    public static void main(String[] args) {
+        int[] arr = new int[5];
+        int x = arr.length;
+    }
+}

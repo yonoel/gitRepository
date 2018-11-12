@@ -1,0 +1,169 @@
+package com.igeek.web.controller;
+
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.mail.MessagingException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.ConvertUtils;
+import org.apache.commons.beanutils.locale.converters.DateLocaleConverter;
+import org.springframework.stereotype.Controller;
+
+import com.igeek.domain.User;
+import com.igeek.service.IUserServices;
+import com.igeek.service.impl.UserServicesImpl;
+import com.igeek.web.util.UserDTO;
+import com.igeek.web.util.WebUtils;
+
+/**
+ * Servlet implementation class RegisterServlet
+ */
+@Controller
+public class UserServlet {
+   
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String method = request.getParameter("methodflag");
+
+        // 将客户端提交的表单数据封装到DTO对象
+        UserDTO userDTO = WebUtils.request2Bean(request, UserDTO.class);
+
+        /*
+         * // 二次校验 if (!userDTO.validate(method)) {
+         * WebUtils.object2Json(userDTO.getErrors(), response);
+         * 
+         * return; }
+         */
+        // 验证码的验证 -- 前提，必须是表单提交，不是提交则没有必要进行这个验证
+        if (userDTO.getPassword() != null && userDTO.getPassword().length() > 0) {
+            String codeName = String.format("%scode", method);
+            String code = (String) request.getSession().getAttribute(codeName);
+            String yzm = request.getParameter("yzm");
+            if (!code.equalsIgnoreCase(yzm)) {
+                Map<String, Object> map = new HashMap<String, Object>();
+                map.put("flag", false);
+                map.put("message", "验证码错误");
+                WebUtils.object2Json(map, response);
+                return;
+            }
+        }
+
+        try {
+            User user = new User();
+            // 注册字符串到日期的转换器
+
+            ConvertUtils.register(new DateLocaleConverter(), java.util.Date.class);
+            // 把表单的数据填充到javabean中
+
+            // 调用service层
+            IUserServices services = new UserServicesImpl();
+
+            if (method.contains("register")) {
+                user.setUid(WebUtils.makeId());
+                BeanUtils.copyProperties(user, userDTO);
+                registerHandler(request, response, services, user);
+            } else if (method.contains("login")) {
+                BeanUtils.copyProperties(user, userDTO);
+                loginHandler(request, response, services, user);
+            } else if (method.contains("active")) {
+                activeHandler(request, response, services);
+            }
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * @Title: activeHandler
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @param request
+     * @param response
+     * @param services
+     * @throws IOException
+     * @throws ServletException
+     */
+    private void activeHandler(HttpServletRequest request, HttpServletResponse response, IUserServices services)
+            throws ServletException, IOException {
+        Map<String, Object> map = services.activeUser(request.getParameter("uid"));
+        if ((Boolean) map.get("flag")) {
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
+    }
+
+    /**
+     * @Title: loginHandler
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @param request
+     * @param response
+     */
+    private void loginHandler(HttpServletRequest request, HttpServletResponse response, IUserServices services,
+            User user) {
+
+        Map<String, Object> map = services.queryUser(user);
+        if ((Boolean) map.get("flag")) {
+            String remember = request.getParameter("remember");
+            // 只有表单提交时才有这个参数
+            if (remember != null) {
+                if (remember.contains("true")) {
+                    Cookie name = new Cookie("username", user.getName());
+                    Cookie password = new Cookie("password", user.getPassword());
+                    response.addCookie(name);
+                    response.addCookie(password);
+
+                }
+
+            }
+            request.getSession().setAttribute("user", user);
+        }
+        WebUtils.object2Json(map, response);
+
+    }
+
+    /**
+     * @Title: registerHandler
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @param request
+     * @param response
+     */
+    public void registerHandler(HttpServletRequest request, HttpServletResponse response, IUserServices services,
+            User user) {
+
+        try {
+            Map<String, Object> map = services.insertUser(user);
+            if ((Boolean) map.get("flag")) {
+                String message = String.format(
+                        "恭喜您注册成功，请点击下面的连接进行激活账户 ,<a href='192.168.6.77/%s/userController?methodflag='active'&uid=/'%s/''>点击</a>",
+                        request.getContextPath(), user.getUid());
+                WebUtils.sendMail(user.getEmail(), message);
+            }
+            WebUtils.object2Json(map, response);
+        } catch (MessagingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    }
+
+}

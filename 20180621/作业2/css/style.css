@@ -1,0 +1,209 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2018-06-21 21:34:48
+ * @version $Id$
+ */
+div {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav {
+        width: 1280px;
+        height: 470px;
+        margin: 0 auto;
+    }
+
+    .top {
+        background-color: black;
+        color: white;
+        width: auto;
+        height: 30px;
+    }
+
+    .top span {
+        padding-left: 5px;
+        padding-right: 10px;
+        float: right;
+        font-style: italic;
+        font-size: 15px;
+        padding-bottom: 5px;
+    }
+
+    .top img {
+        padding-top: 2px;
+        float: right;
+    }
+
+    .top li {
+        font-size: 12px;
+        font-style: normal;
+        list-style: none;
+        float: left;
+        padding-top: 7px;
+        margin-right: 10px;
+    }
+
+    .lidiv {
+        float: right;
+    }
+
+    .textdiv {
+        padding-top: 5px;
+    }
+
+    .textdiv img[src="../images/tel.PNG"] {
+        padding-right: 20px;
+    }
+
+    .banner {
+        background-image: url(../images/head_bg.jpg);
+        height: 80px;
+    }
+
+    .banner .lidiv {
+        color: black;
+    }
+
+    .flower {
+
+        float: left;
+        position: relative;
+        left: 200px;
+    }
+
+    .banner .lidiv li {
+        font-size: 18px;
+        font-weight: bold;
+        padding-top: 35px;
+        padding-bottom: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .banner .lidiv li:hover {
+        color: white;
+        background-color: #C1A50D;
+    }
+
+    .main {
+        height: 710px;
+        background-image: url(../images/banner.JPG);
+        background-repeat: no-repeat;
+        background-size: 1280px 470px;
+        clear: both;
+    }
+
+    .main .img {
+        color: grey;
+        width: 320px;
+        height: 230px;
+
+        float: left;
+        position: relative;
+        left: 190px;
+        bottom: -470px;
+        margin-right: 20px;
+    }
+
+    .main h5,
+    h6 {
+        margin: 8px;
+    }
+
+    .main span {
+        font-size: 10px;
+        word-spacing: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        clear: both;
+    }
+
+    .foot {
+        background-image: url(../images/foot_bg.jpg);
+        height: 210px;
+        color: grey;
+        clear: both;
+    }
+
+    .foot .uldiv {
+        height: 180px;
+        width: 230px;
+        float: left;
+        font-size: 12px;
+      
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        text-indent: 2em;
+    }
+
+    .foot h5 {
+        font-size: 13px;
+        padding-top: 28px;
+        padding-bottom: 5px;
+    }
+
+    .foot .leftfloat {
+        width: 900px;
+        margin: 0 auto;
+    }
+
+    .foot .uldiv h5 {
+        position: relative;
+        left: 150px;
+    }
+
+    .foot ul,
+    li,
+    h5,h1,h4 {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .foot p {
+        margin: 0;
+        padding: 3px;
+    }
+
+    .foot .lidiv {
+        float: left;
+        height: 120px;
+        width: 80px;
+       
+        margin-left: 20px;
+    }
+
+    .foot .lidiv li {
+        float: unset;
+        padding: 2px;
+        font-size: 13px;
+    }
+    .foot .rightfloat{
+    	float: right;
+    	text-align: right;
+    	font-size: 13px;
+    	position: relative;
+    	right: 10px;
+    }
+    .foot .rightfloat h4,h1{
+    	color:#C0A109;
+    }
+    .foot .rightfloat h4{
+    	padding-top: 28px;
+    }
+	.foot .rightfloat h5{
+		padding-top: 5px;
+	}
+	.footed{
+
+		text-align: center;
+		font-size: 13px;
+		color:grey;
+	}
+	.footed p{
+		margin-top:2px;
+	}

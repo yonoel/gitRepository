@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+p span{ color:#F00;
+	}
+.title{ font-size:18px;
+font-family:"楷体"; font-weight:bold;
+	}
+p{ font-size:12px;
+font-family:"Times New Roman", Times, serif;
+font-family:"宋体";
+text-height:20px;
+	}

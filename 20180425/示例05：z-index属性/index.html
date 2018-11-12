@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>z-index属性</title>
+    <style>
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #content {
+        width: 331px;
+        border: 1px solid #CCC;
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    #content ul {
+        position: relative;
+    }
+
+    #content ul li {
+        line-height: 25px;
+    }
+
+    .tipText,
+    .tipBg {
+        position: absolute;
+        width: 331px;
+        height: 25px;
+        bottom: 58px;
+        ;
+        left: 0;
+    }
+
+    .tipBg {
+        background-color: #000;
+        opacity: 0.4;
+    }
+
+    .tipText {
+        text-align: center;
+        color: #FFF;
+        z-index: 10;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <ul>
+            <li><img src="image/maple.jpg" alt="香山红叶" /></li>
+            <li class="tipText">京秋魅力&#8226;相约共赏香山红叶</li>
+            <li class="tipBg"></li>
+            <li>时间：11月16日 星期六 8:30</li>
+            <li>地点：朝阳区西大望路珠江帝景K区正门前集合</li>
+        </ul>
+    </div>
+</body>
+
+</html>

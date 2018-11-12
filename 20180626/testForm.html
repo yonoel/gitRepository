@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>testForm</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
+" type="text/javascript" charset="utf-8" async defer>
+    </script>
+    <script type="text/javascript">
+    	
+    	function checkform(){
+    		var user = $('#user')[0].value;
+    		var psd = $('#psd')[0].value;
+    		// 先对用户名测试
+    		if(iszero(user)){
+    			alert("用户名不能为空");
+    			return false;
+    		}
+    		// 只能包含a-z.0-9和下划线
+    		if(iswrongname(user)){
+    			alert("用户名只能包含a-z.0-9和下划线");
+    			return false;
+    		}
+    		// 测试密码
+    		if(iszero(psd)){
+    			alert("密码不能为空");
+    			return false;
+    		}
+    		if(iswrongpsd(psd)){
+    			alert("密码至少六个字符,且为数字")
+    			return false;
+    		}
+    		return true;
+    	}
+    	// 测试值是否为空
+    	function iszero(argument) {
+    		if(argument.length == 0 || argument == ""){
+    			return true;
+    		}
+    		return false;
+    	}
+    	function iswrongname (arg) {
+    		if(!('a'<arg && arg <'z') || ('A'<arg&&arg<'Z')||('0'<arg&&arg<'9')||(arg == '_')){
+    			return true;
+    		}
+    		return false;
+    	}
+    	function iswrongpsd (argument) {
+    		var reg=/^[0-9]{6}$/; 
+    		if(!reg.test(argument)){
+    			return true;
+    		}
+    		return false;
+    	}
+    </script>
+</head>
+
+<body>
+    <!-- 在提交前要验证，如果成功跳转画面，失败停留并清空 -->
+    <!-- 1.提交按钮为submit ,需要些onsubmit事件在submit被触发时，该事件必须要有一个返回值(boolean) 
+    	,required属性要求必须有值-->
+    <!--2.提交按钮为button ，需要手动提交，方法中a.验证 b.手动提交form.submit() 方法 -->
+    <!-- onblur事件 loses the input focus. 此时进行测试
+				 -->
+				 <!-- onfous事件 -->
+    <form action="success.html"  accept-charset="utf-8" onsubmit="return checkform()">
+        用户名:
+        <input type="text"  name="user" id="user"  />只能包含a-z.0-9和下划线，不能为空
+        <br> 
+        密码:
+        <input type="password" name="psd" id="psd">至少六个字符<br>
+        <input type="submit" name="" value="提交">
+        <input type="button" value="清空">
+    </form>
+</body>
+
+</html>

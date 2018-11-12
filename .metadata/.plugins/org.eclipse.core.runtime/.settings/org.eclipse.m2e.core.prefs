@@ -1,0 +1,10 @@
+eclipse.m2.WorkspacelifecycleMappingsLocation=E\:/workspace/.metadata/.plugins/org.eclipse.m2e.core/lifecycle-mapping-metadata.xml
+eclipse.m2.autoUpdateProjects=true
+eclipse.m2.defaultPomEditorPage=true
+eclipse.m2.defaultRuntime=maven
+eclipse.m2.globalSettingsFile=D\:\\qianyizhen\\maven\\conf\\settings.xml
+eclipse.m2.runtimes=maven
+eclipse.m2.runtimesNodes/maven/location=D\:\\qianyizhen\\maven
+eclipse.m2.runtimesNodes/maven/type=EXTERNAL
+eclipse.m2.userSettingsFile=D\:\\qianyizhen\\maven\\conf\\settings.xml
+eclipse.preferences.version=1

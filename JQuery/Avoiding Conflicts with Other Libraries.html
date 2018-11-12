@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <!-- Putting jQuery into no-conflict mode. -->
+    <script src="prototype.js"></script>
+    <script src="jquery.js"></script>
+    <script type="text/javascript">
+    var $j = jQuery.noConflict();
+    // $j is now an alias to the jQuery function; creating the new alias is optional.
+
+    $j(document).ready(function() {
+        $j("div").hide();
+    });
+
+    // The $ variable now has the prototype meaning, which is a shortcut for
+    // document.getElementById(). mainDiv below is a DOM element, not a jQuery object.
+    window.onload = function() {
+        var mainDiv = $("main");
+    }
+    </script>
+    <!-- Another way to put jQuery into no-conflict mode. -->
+    <script>
+    jQuery.noConflict();
+
+    jQuery(document).ready(function($) {
+        // You can use the locally-scoped $ in here as an alias to jQuery.
+        $("div").hide();
+    });
+
+    // The $ variable in the global scope has the prototype.js meaning.
+    window.onload = function() {
+        var mainDiv = $("main");
+    }
+    </script>
+    <!-- Loading jQuery before other libraries. -->
+    <script>
+    // Use full jQuery function name to reference jQuery.
+    jQuery(document).ready(function() {
+        jQuery("div").hide();
+    });
+
+    // Use the $ variable as defined in prototype.js
+    window.onload = function() {
+        var mainDiv = $("main");
+    };
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

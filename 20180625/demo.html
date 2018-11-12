@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript">
+    function fn1() {
+        // NaN是一个非数字
+        // true即是一个非数字，false是一个数字
+        // alert(isNaN(parseInt('asdasd')));
+
+        function matchDemo() {
+            var s;
+            var re = new RegExp("d(b+)(d)", "ig");
+            var str = "cdbBdbsbdbdz";
+            var arr = re.exec(str);
+            s = "$1 contains: " + RegExp.$1 + "\n";
+            s += "$2 contains: " + RegExp.$2 + "\n";
+            s += "$3 contains: " + RegExp.$3;
+            return (s);
+        }
+        var s = "值为"+matchDemo();
+        // alert(s);
+    }
+    function fn2 (argument) {
+    	var arr = new Array(1,2,3,4,5,6,7);
+    	// arrayObj.splice(start, deleteCount, [item1[, item2[, . . . [,itemN]]]])
+    	// 从start开始至end替换元素 ,三个参数必须存在。。。而且，即使数目不对，也可以随意添加，既能删除，又能增加
+    	arr.splice(0, 0, 8,9,10);
+    	for (var i = 0; i < arr.length; i++) {
+    		alert(arr[i]);
+    	}
+    }
+    </script>
+</head>
+
+<body>
+    <input type="button" name="fn1b" onclick="fn1()" value="isNaN"/>
+    <input type="button" name="fn2b" onclick="fn2()" value="Array对象"/>
+</body>
+
+</html>

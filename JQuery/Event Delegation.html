@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Event Delegation</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  	$(document).ready(function(){
+  	// 	  	$( "#list a" ).on( "click", function( event ) {
+			//     event.preventDefault();
+			//     console.log( $( this ).text() );
+			//     // 此时添加的a标签并不会触发 上面的事件，而是，跳转页面newdomain
+			//     $( "#list" ).append( "<li><a href='http://newdomain.com'>Item #5</a></li>" );
+			// });
+
+			// Attach a delegated event handler
+			// $( "#list" ).on( "click", "a", function( event ) {
+			//     event.preventDefault();
+			//     console.log( $( this ).text() );
+			//     $( "#list" ).append( "<li><a href='http://newdomain.com'>Item #5</a></li>" );
+			// });
+			$( "#list" ).on( "click", "a", function( event ) {
+
+				    var elem = $( this );
+				    // 如果以http开始，不preventDefault，并且添加新att "target", "_blank" 使其新页面打开
+				    if ( elem.is( "[href^='http']" ) ) {
+				    	 console.log( $( this ).text() +'href^=http');
+				        elem.attr( "target", "_blank" );
+				        return ;
+				    }
+				    event.preventDefault();
+				    console.log( $( this ).text() );
+				});
+  	});
+
+  </script>
+</head>
+<body>
+    <div id="container">
+    <ul id="list">
+        <li><a href="http://domain1.com">Item #1</a></li>
+        <li><a href="/local/path/1">Item #2</a></li>
+        <li><a href="/local/path/2">Item #3</a></li>
+        <li><a href="http://domain4.com">Item #4</a></li>
+    </ul>
+</div>
+</body>
+</html>

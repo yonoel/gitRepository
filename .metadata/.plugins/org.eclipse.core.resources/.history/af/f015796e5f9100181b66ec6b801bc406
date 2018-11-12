@@ -1,0 +1,11 @@
+package com.igeek.SpringBootStudy.controller;
+
+/**  
+* @ClassName: HelloWorldController  
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @date 2018年7月27日 下午1:39:11    
+*    
+*/
+public class HelloWorldController {
+
+}

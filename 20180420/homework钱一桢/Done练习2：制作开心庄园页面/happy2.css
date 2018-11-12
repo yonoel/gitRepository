@@ -1,0 +1,6 @@
+@charset "utf-8";
+/* CSS Document */
+
+p.title{font-size:20px;color:#965B39; font-weight:900;}
+.main img{vertical-align:middle;}
+.main pre{line-height:25px;color:#965B39;font-size:12px;}

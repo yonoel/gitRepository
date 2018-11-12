@@ -1,0 +1,103 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>RegisterUIServlet</servlet-name>
+		<display-name>RegisterUIServlet</display-name>
+		<description></description>
+		<servlet-class>formVerify.web.ui.RegisterUIServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<display-name>RegisterServlet</display-name>
+		<description></description>
+		<servlet-class>formVerify.web.controller.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginUIServlet</servlet-name>
+		<display-name>LoginUIServlet</display-name>
+		<description></description>
+		<servlet-class>formVerify.web.ui.LoginUIServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<display-name>LoginServlet</display-name>
+		<description></description>
+		<servlet-class>formVerify.web.controller.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<display-name>LogoutServlet</display-name>
+		<description></description>
+		<servlet-class>formVerify.web.controller.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>QueryServlet</servlet-name>
+		<display-name>QueryServlet</display-name>
+		<description></description>
+		<servlet-class>formVerify.web.controller.QueryServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteServlet</servlet-name>
+		<display-name>DeleteServlet</display-name>
+		<description></description>
+		<servlet-class>formVerify.web.controller.DeleteServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateServlet</servlet-name>
+		<display-name>UpdateServlet</display-name>
+		<description></description>
+		<servlet-class>formVerify.web.controller.UpdateServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>QueryUIservlet</servlet-name>
+		<display-name>QueryUIservlet</display-name>
+		<description></description>
+		<servlet-class>formVerify.web.ui.QueryUIservlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterUIServlet</servlet-name>
+		<url-pattern>/Servlet/RegisterUIServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/Servlet/RegisterServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginUIServlet</servlet-name>
+		<url-pattern>/Servlet/LoginUIServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/Servlet/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/LogoutServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QueryServlet</servlet-name>
+		<url-pattern>/QueryServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteServlet</servlet-name>
+		<url-pattern>/DeleteServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateServlet</servlet-name>
+		<url-pattern>/UpdateServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QueryUIservlet</servlet-name>
+		<url-pattern>/QueryUIservlet</url-pattern>
+	</servlet-mapping>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/pages/404Error.jsp</location>
+	</error-page>
+	
+	
+</web-app>

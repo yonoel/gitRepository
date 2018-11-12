@@ -1,0 +1,48 @@
+
+  <HTML>
+  <HEAD>
+  <META http-equiv="Content-Type" content="text/html; charset=gb2312">
+  <TITLE>getElementById方法</TITLE>
+<SCRIPT language="javascript">
+ 
+var advInitTop=0;
+var closeInitTop=0;
+function inix( )
+{
+   advInitTop=document.getElementById("advLayer").style.pixelTop;
+   closeInitTop=document.getElementById("closeLayer").style.pixelTop;
+}
+function move( )
+{
+    document.getElementById("advLayer").style.pixelTop=advInitTop+document.body.scrollTop   ;
+	document.getElementById("closeLayer").style.pixelTop=closeInitTop+document.body.scrollTop   ;
+	 
+}
+function closeMe( )
+{
+    
+    document.getElementById("closeLayer").style.display="none";
+	document.getElementById("advLayer").style.display="none";
+	 
+}
+
+	 
+window.onscroll=move ;  //窗口的滚动事件，当页面滚动时调用move( )函数
+
+</SCRIPT>
+
+   
+  
+   
+  </HEAD>
+    
+  <BODY  onLoad="inix( )" >
+   <DIV id="closeLayer"  onClick="closeMe( )" style="position:absolute;	left:166px;	top:132px;	width:27px;	height:19px;z-index:2;"><IMG src="images/close.jpg" width="26" height="18"></DIV>
+  <P>&nbsp;</P>
+  <P><IMG src="images/contentpic.jpg" width="993" height="1799"></P>
+  <P>&nbsp;</P>
+  <DIV id="advLayer" style="position:absolute;	left:16px;	top:129px;	width:144px;	height:95px;	z-index:1;"><A href="http://www.taobao.com"><IMG src="images/advpic.gif" width="180" height="230" border="0"></A></DIV>
+   
+  </BODY>
+  </HTML>
+</div>
